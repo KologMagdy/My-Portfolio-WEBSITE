@@ -1,0 +1,246 @@
+{
+  "ar": {
+    "personal_info": {
+      "name": "كلوج مجدي",
+      "title": "Software Engineer | Full-Stack Developer",
+      "tagline": "أركز على بناء أنظمة قابلة للتوسع وتسليم حلول برمجية تجارية قوية في الموعد.",
+      "avatar": "avatar.webp",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "twitter": "#",
+        "instagram": "#",
+        "facebook": "#",
+        "email": "mailto:test@example.com"
+      }
+    },
+    "ui": {
+      "marquee": "متاح للعمل الحر • Full-Stack Engineer • System Architect • ",
+      "hero_status": "متاح للتوظيف",
+      "hero_projects_btn": "شاهد أعمالي",
+      "hero_contact_btn": "تواصل معي",
+      "card_projects_btn": "أعمالي",
+      "card_contact_btn": "تواصل معي",
+      "skills_title": "المهارات",
+      "footer_title": "تواصل",
+      "footer_copyright": "© 2026 كلوج مجدي",
+      "visit_project": "زيارة المشروع",
+      "projects_subtitle": "مشاريع تجارية حقيقية تم شحنها وتسليمها للعملاء",
+      "project_role_label": "الدور",
+      "project_highlights_label": "أبرز النقاط",
+      "view_source": "الكود المصدري",
+      "contact_subtitle": "دعنا نبني شيئاً",
+      "contact_text": "تبحث عن مطور لمساعدتك في تحويل أفكارك إلى حقيقة أو توسيع نظامك الحالي؟ أنا متاح للعمل الحر ومستعد دائماً لفرص وتحديات جديدة.",
+      "social_title": "تواصل عبر منصات أخرى",
+      "nav_view_profile": "عرض الملف الشخصي",
+      "nav_view_id": "بطاقة التعريف",
+      "nav_brand_handle": "kolog_magdy",
+      "contact_section_label": "تواصل",
+      "primary_link_label": "الرابط الرئيسي",
+      "contact_subtitle_accent": "مذهلاً.",
+      "tech_stack_label": "Tech Stack",
+      "project_details_label": "تفاصيل المشروع",
+      "view_details": "عرض التفاصيل",
+      "no_preview": "لا توجد معاينة",
+      "email_label": "البريد",
+      "footer_watermark": "KOLOG MAGDY",
+      "code_window_name": "Kolog Magdy",
+      "code_window_role": "Full-Stack Engineer",
+      "code_window_focus": "Scalable Systems"
+    },
+    "skills": {
+      "categories": {
+        "core": "Core",
+        "frontend": "Frontend",
+        "delivery_tools": "Delivery Tools"
+      },
+      "core": [
+        "PHP",
+        "MySQL",
+        "C++",
+        "JavaScript",
+        "OOP"
+      ],
+      "frontend": [
+        "HTML",
+        "Tailwind CSS"
+      ],
+      "delivery_tools": [
+        "React",
+        "Next.js",
+        "Astro"
+      ]
+    },
+    "projects_title": "أبرز المشاريع",
+    "projects": [
+      {
+        "name": "طاجن (Tagen)",
+        "type": "منصّة ويب",
+        "description": "منصة تجارة إلكترونية متكاملة. تم التركيز على الإطلاق الفعلي (Production) والتعامل مع مستخدمين حقيقيين وتحقيق أهداف تجارية ملموسة.",
+        "role": "Full-Stack Developer — بناء الواجهة والنظام الخلفي والنشر",
+        "year": "2025",
+        "status": "live",
+        "status_label": "مشروع مُطلَق",
+        "image": "954shots_so.jpeg",
+        "highlights": [
+          "بنية متكاملة من الصفر حتى الإطلاق",
+          "أداء عالي مع مستخدمين حقيقيين",
+          "نظام طلبات وسلة مشتريات كامل"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "Tailwind CSS",
+          "React"
+        ],
+        "icon": "cart",
+        "link": "#",
+        "source": "#"
+      },
+      {
+        "name": "Go Pet",
+        "type": "موقع خدمي",
+        "description": "موقع خدمي للربط بين العملاء ومقدمي خدمات الحيوانات الأليفة. التركيز على سرعة التسليم وتلبية متطلبات العميل بدقة هندسية.",
+        "role": "Front-End Developer — بناء الواجهة وتجربة المستخدم",
+        "year": "2025",
+        "status": "live",
+        "status_label": "مشروع مُطلَق",
+        "image": "981shots_so.jpeg",
+        "highlights": [
+          "تسليم في وقت قياسي",
+          "واجهة تفاعلية سريعة الاستجابة",
+          "تصميم يركز على تجربة المستخدم"
+        ],
+        "tech_stack": [
+          "Astro",
+          "React",
+          "Tailwind CSS"
+        ],
+        "icon": "globe",
+        "link": "#",
+        "source": "#"
+      }
+    ]
+  },
+  "en": {
+    "personal_info": {
+      "name": "Kolog Magdy",
+      "title": "Software Engineer | Full-Stack Developer",
+      "tagline": "Focused on building scalable systems and delivering robust commercial solutions on time.",
+      "avatar": "avatar.webp",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "twitter": "#",
+        "instagram": "#",
+        "facebook": "#",
+        "email": "mailto:test@example.com"
+      }
+    },
+    "ui": {
+      "marquee": "AVAILABLE FOR FREELANCE • FULL STACK ENGINEER • SYSTEM ARCHITECT • ",
+      "hero_status": "Available for hire",
+      "hero_projects_btn": "View My Work",
+      "hero_contact_btn": "Contact Me",
+      "card_projects_btn": "My Work",
+      "card_contact_btn": "Contact Me",
+      "skills_title": "Skills",
+      "footer_title": "Contact",
+      "footer_copyright": "© 2026 Kolog Magdy",
+      "visit_project": "Live Preview",
+      "projects_subtitle": "Real commercial projects shipped and delivered to clients",
+      "project_role_label": "Role",
+      "project_highlights_label": "Highlights",
+      "view_source": "Source Code",
+      "contact_subtitle": "Let's Build Something",
+      "contact_text": "Looking for a developer to help bring your ideas to life or scale your existing systems? I'm available for freelance work and always open to new opportunities.",
+      "social_title": "Connect Elsewhere",
+      "nav_view_profile": "View Profile",
+      "nav_view_id": "View ID",
+      "nav_brand_handle": "kolog_magdy",
+      "contact_section_label": "Contact",
+      "primary_link_label": "Primary Link",
+      "contact_subtitle_accent": "Amazing.",
+      "tech_stack_label": "Tech Stack",
+      "project_details_label": "Project Details",
+      "view_details": "View Details",
+      "no_preview": "No Preview Available",
+      "email_label": "Email",
+      "footer_watermark": "KOLOG MAGDY",
+      "code_window_name": "Kolog Magdy",
+      "code_window_role": "Full-Stack Engineer",
+      "code_window_focus": "Scalable Systems"
+    },
+    "skills": {
+      "categories": {
+        "core": "Core",
+        "frontend": "Frontend",
+        "delivery_tools": "Delivery Tools"
+      },
+      "core": [
+        "PHP",
+        "MySQL",
+        "C++",
+        "JavaScript",
+        "OOP"
+      ],
+      "frontend": [
+        "HTML",
+        "Tailwind CSS"
+      ],
+      "delivery_tools": [
+        "React",
+        "Next.js",
+        "Astro"
+      ]
+    },
+    "projects_title": "Featured Projects",
+    "projects": [
+      {
+        "name": "Tagen",
+        "type": "Web Platform",
+        "description": "A full-fledged e-commerce platform. Focused on actual production launch, handling real users, and achieving tangible business objectives.",
+        "role": "Full-Stack Developer — Built the UI, backend systems, and deployment pipeline",
+        "year": "2025",
+        "status": "live",
+        "status_label": "Shipped & Live",
+        "image": "954shots_so.jpeg",
+        "highlights": [
+          "End-to-end architecture from scratch to production",
+          "High performance under real user load",
+          "Complete order & cart management system"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "Tailwind CSS",
+          "React"
+        ],
+        "icon": "cart",
+        "link": "https://tagen.app",
+        "source": "#"
+      },
+      {
+        "name": "Go Pet",
+        "type": "Service Website",
+        "description": "Service-oriented platform connecting pet owners with trusted service providers. Focused on fast delivery and engineering precision to meet exact client specs.",
+        "role": "Front-End Developer — Built the interface and user experience",
+        "year": "2025",
+        "status": "live",
+        "status_label": "Shipped & Live",
+        "image": "981shots_so.jpeg",
+        "highlights": [
+          "Delivered on a tight deadline",
+          "Responsive, high-performance interface",
+          "UX-driven design approach"
+        ],
+        "tech_stack": [
+          "Astro",
+          "React",
+          "Tailwind CSS"
+        ],
+        "icon": "globe",
+        "link": "https://gopet.net",
+        "source": "#"
+      }
+    ]
+  }
+}
