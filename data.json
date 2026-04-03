@@ -93,7 +93,7 @@
           "React"
         ],
         "icon": "cart",
-        "link": "#",
+        "link": "https://tagen.app",
         "source": "#"
       },
       {
@@ -116,7 +116,7 @@
           "Tailwind CSS"
         ],
         "icon": "globe",
-        "link": "#",
+        "link": "https://gopet.net",
         "source": "#"
       }
     ]

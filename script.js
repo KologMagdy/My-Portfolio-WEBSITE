@@ -1,5 +1,19 @@
 let portfolioData = null;
-let currentLang = localStorage.getItem('lang') || 'en';
+
+// 4. Global Data Access Helper (T020)
+function getVal(lang, path, fallback = '') {
+    if (!portfolioData) return fallback;
+    const keys = path.split('.');
+    let current = portfolioData[lang];
+    let currentEn = portfolioData['en'];
+    
+    for (const key of keys) {
+        current = current ? current[key] : undefined;
+        currentEn = currentEn ? currentEn[key] : undefined;
+    }
+    return current ?? currentEn ?? fallback;
+}
+let currentLang = ['en', 'ar'].includes(localStorage.getItem('lang')) ? localStorage.getItem('lang') : 'en';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Bind toggle button
@@ -19,10 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
+            if (!data || typeof data !== 'object') throw new Error("Malformed JSON data");
             portfolioData = data;
             render(currentLang);
         })
-        .catch(err => console.error("Error loading data:", err));
+        .catch(err => {
+            const errorDiv = document.getElementById('data-error');
+            if (errorDiv) errorDiv.classList.remove('hidden');
+        });
 
     // 3. Initialize header behaviors
     initNavScrollBehavior();
@@ -190,15 +208,13 @@ const navTranslations = {
 function render(lang) {
     if (!portfolioData || !portfolioData[lang]) return;
 
-    const data = portfolioData[lang];
-
     // --- HTML Attributes & Meta ---
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.title = `${data.personal_info.name} | ${data.personal_info.title}`;
+    document.title = `${getVal(lang, 'personal_info.name')} | ${getVal(lang, 'personal_info.title')}`;
     
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.content = data.personal_info.tagline;
+    if (metaDesc) metaDesc.content = getVal(lang, 'personal_info.tagline');
 
     // --- Nav Text ---
     const navTexts = navTranslations[lang];
@@ -211,26 +227,26 @@ function render(lang) {
         if (navTexts[key]) el.textContent = navTexts[key];
     });
     const brandName = document.getElementById('nav-brand-handle');
-    if (brandName) brandName.textContent = data.ui.nav_brand_handle;
+    if (brandName) brandName.textContent = getVal(lang, 'ui.nav_brand_handle');
 
     const navViewProfile = document.getElementById('nav-view-profile');
-    if (navViewProfile) navViewProfile.textContent = data.ui.nav_view_profile;
+    if (navViewProfile) navViewProfile.textContent = getVal(lang, 'ui.nav_view_profile');
 
     const navViewId = document.getElementById('nav-view-id');
-    if (navViewId) navViewId.textContent = data.ui.nav_view_id;
+    if (navViewId) navViewId.textContent = getVal(lang, 'ui.nav_view_id');
 
     // --- Static Text & Links ---
     const heroName = document.getElementById('hero-name');
-    if (heroName) heroName.textContent = data.personal_info.name;
+    if (heroName) heroName.textContent = getVal(lang, 'personal_info.name');
     
     const heroTitle = document.getElementById('hero-title');
-    if (heroTitle) heroTitle.textContent = data.personal_info.title;
+    if (heroTitle) heroTitle.textContent = getVal(lang, 'personal_info.title');
     
     const heroTagline = document.getElementById('hero-tagline');
-    if (heroTagline) heroTagline.textContent = data.personal_info.tagline;
+    if (heroTagline) heroTagline.textContent = getVal(lang, 'personal_info.tagline');
 
     const heroStatus = document.getElementById('hero-status');
-    if (heroStatus) heroStatus.textContent = data.ui.hero_status;
+    if (heroStatus) heroStatus.textContent = getVal(lang, 'ui.hero_status');
     
     const emailLink = document.getElementById('hero-email');
     if (emailLink) {
@@ -240,7 +256,7 @@ function render(lang) {
         if (emailSvg) emailLink.prepend(emailSvg);
         const span = document.createElement('span');
         span.className = 'whitespace-nowrap';
-        span.textContent = data.ui.hero_contact_btn;
+        span.textContent = getVal(lang, 'ui.hero_contact_btn');
         emailLink.appendChild(span);
     }
 
@@ -249,68 +265,80 @@ function render(lang) {
         const projSvg = projectsBtn.querySelector('svg');
         projectsBtn.textContent = '';
         if (projSvg) projectsBtn.prepend(projSvg);
-        projectsBtn.append(` ${data.ui.hero_projects_btn}`);
+        projectsBtn.append(` ${getVal(lang, 'ui.hero_projects_btn')}`);
     }
 
+    // --- Social Links Hiding Logic (T014) ---
+    const isHidden = (key) => {
+        return portfolioData['en'].personal_info.links[key] === '#' && 
+               portfolioData['ar'].personal_info.links[key] === '#';
+    };
+
     const githubLink = document.getElementById('footer-github');
-    if (githubLink) githubLink.href = data.personal_info.links.github;
+    if (githubLink) githubLink.href = getVal(lang, 'personal_info.links.github');
     
     const linkedinLink = document.getElementById('footer-linkedin');
-    if (linkedinLink) linkedinLink.href = data.personal_info.links.linkedin;
+    if (linkedinLink) linkedinLink.href = getVal(lang, 'personal_info.links.linkedin');
+
+    // Profile Card & Contact links
+    const socialMap = {
+        'github': ['footer-github', 'profile-modal-github', 'contact-social-github', 'mobile-github'],
+        'linkedin': ['footer-linkedin', 'profile-modal-linkedin', 'contact-social-linkedin', 'mobile-linkedin'],
+        'twitter': ['profile-modal-twitter', 'contact-social-twitter'],
+        'instagram': ['profile-modal-instagram'],
+        'facebook': ['profile-modal-facebook']
+    };
+
+    Object.entries(socialMap).forEach(([key, ids]) => {
+        const hidden = isHidden(key);
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.href = getVal(lang, `personal_info.links.${key}`) || '#';
+                if (hidden) el.classList.add('hidden');
+                else el.classList.remove('hidden');
+            }
+        });
+    });
 
     // --- Profile Card Modal Content ---
     const profileName = document.getElementById('profile-modal-name');
-    if (profileName) profileName.textContent = data.personal_info.name;
+    if (profileName) profileName.textContent = getVal(lang, 'personal_info.name');
 
     const profileTitle = document.getElementById('profile-modal-title');
-    if (profileTitle) profileTitle.textContent = data.personal_info.title;
-
-    const profileGithub = document.getElementById('profile-modal-github');
-    if (profileGithub) profileGithub.href = data.personal_info.links.github;
-
-    const profileLinkedin = document.getElementById('profile-modal-linkedin');
-    if (profileLinkedin) profileLinkedin.href = data.personal_info.links.linkedin;
-
-    const profileTwitter = document.getElementById('profile-modal-twitter');
-    if (profileTwitter) profileTwitter.href = data.personal_info.links.twitter || '#';
-
-    const profileInstagram = document.getElementById('profile-modal-instagram');
-    if (profileInstagram) profileInstagram.href = data.personal_info.links.instagram || '#';
-
-    const profileFacebook = document.getElementById('profile-modal-facebook');
-    if (profileFacebook) profileFacebook.href = data.personal_info.links.facebook || '#';
+    if (profileTitle) profileTitle.textContent = getVal(lang, 'personal_info.title');
 
     const profileEmail = document.getElementById('profile-modal-email');
-    if (profileEmail) profileEmail.href = data.personal_info.links.email;
+    if (profileEmail) profileEmail.href = getVal(lang, 'personal_info.links.email');
 
     // Card action button labels
     const cardProjectsSpan = document.querySelector('[data-card-btn="projects"]');
-    if (cardProjectsSpan) cardProjectsSpan.textContent = data.ui.card_projects_btn;
+    if (cardProjectsSpan) cardProjectsSpan.textContent = getVal(lang, 'ui.card_projects_btn');
 
     const cardContactSpan = document.querySelector('[data-card-btn="contact"]');
-    if (cardContactSpan) cardContactSpan.textContent = data.ui.card_contact_btn;
+    if (cardContactSpan) cardContactSpan.textContent = getVal(lang, 'ui.card_contact_btn');
 
 
     // Mobile social links
     const mobileGithub = document.getElementById('mobile-github');
-    if (mobileGithub) mobileGithub.href = data.personal_info.links.github;
+    if (mobileGithub) mobileGithub.href = getVal(lang, 'personal_info.links.github');
     const mobileLinkedin = document.getElementById('mobile-linkedin');
-    if (mobileLinkedin) mobileLinkedin.href = data.personal_info.links.linkedin;
+    if (mobileLinkedin) mobileLinkedin.href = getVal(lang, 'personal_info.links.linkedin');
     
     const skillsTitle = document.getElementById('skills-title');
-    if (skillsTitle) skillsTitle.textContent = data.ui.skills_title;
+    if (skillsTitle) skillsTitle.textContent = getVal(lang, 'ui.skills_title');
     
-    const projectsTitle = document.getElementById('projects-title');
-    if (projectsTitle) projectsTitle.textContent = data.projects_title;
+    const projTitleEl = document.getElementById('projects-title');
+    if (projTitleEl) projTitleEl.textContent = getVal(lang, 'projects_title');
     
     const footerCopyright = document.getElementById('footer-copyright');
     if (footerCopyright) {
-        footerCopyright.textContent = `© ${new Date().getFullYear()} ${data.personal_info.name}`;
+        footerCopyright.textContent = `© ${new Date().getFullYear()} ${getVal(lang, 'personal_info.name')}`;
     }
 
     // --- Contact Section ---
     const contactTitle = document.getElementById('contact-title');
-    if (contactTitle) contactTitle.textContent = data.ui.footer_title || 'Contact Me';
+    if (contactTitle) contactTitle.textContent = getVal(lang, 'ui.footer_title') || 'Contact Me';
     
     const contactSubtitle = document.getElementById('contact-subtitle');
     const contactSubtitleAccent = document.getElementById('contact-subtitle-accent');
@@ -321,32 +349,33 @@ function render(lang) {
         });
         // Insert fresh text node before the accent span
         contactSubtitle.insertBefore(
-            document.createTextNode(data.ui.contact_subtitle + ' '),
+            document.createTextNode(getVal(lang, 'ui.contact_subtitle') + ' '),
             contactSubtitleAccent
         );
-        contactSubtitleAccent.textContent = data.ui.contact_subtitle_accent;
+        contactSubtitleAccent.textContent = getVal(lang, 'ui.contact_subtitle_accent');
     }
     
     const contactText = document.getElementById('contact-text');
-    if (contactText) contactText.textContent = data.ui.contact_text;
+    if (contactText) contactText.textContent = getVal(lang, 'ui.contact_text');
     
     const contactEmailBtn = document.getElementById('contact-email-btn');
-    if (contactEmailBtn) contactEmailBtn.href = data.personal_info.links.email;
+    const userEmail = getVal(lang, 'personal_info.links.email');
+    if (contactEmailBtn) contactEmailBtn.href = userEmail;
     
     const contactBtnText = document.getElementById('contact-btn-text');
-    if (contactBtnText && data.personal_info.links.email) {
-        contactBtnText.textContent = data.personal_info.links.email.replace('mailto:', '');
+    if (contactBtnText && userEmail) {
+        contactBtnText.textContent = userEmail.replace('mailto:', '');
     }
     
     const socialTitle = document.getElementById('social-title');
-    if (socialTitle) socialTitle.textContent = data.ui.social_title;
+    if (socialTitle) socialTitle.textContent = getVal(lang, 'ui.social_title');
 
     const contactGithub = document.getElementById('contact-social-github');
-    if (contactGithub) contactGithub.href = data.personal_info.links.github;
+    if (contactGithub) contactGithub.href = getVal(lang, 'personal_info.links.github');
     const contactLinkedin = document.getElementById('contact-social-linkedin');
-    if (contactLinkedin) contactLinkedin.href = data.personal_info.links.linkedin;
+    if (contactLinkedin) contactLinkedin.href = getVal(lang, 'personal_info.links.linkedin');
     const contactTwitter = document.getElementById('contact-social-twitter');
-    if (contactTwitter) contactTwitter.href = data.personal_info.links.twitter || '#';
+    if (contactTwitter) contactTwitter.href = getVal(lang, 'personal_info.links.twitter') || '#';
 
     // Update Toggle Button Text
     const toggleBtn = document.getElementById('lang-toggle');
@@ -365,24 +394,24 @@ function render(lang) {
 
     // --- Newly dynamic elements ---
     const contactSectionLabel = document.getElementById('contact-section-label');
-    if (contactSectionLabel) contactSectionLabel.textContent = data.ui.contact_section_label;
+    if (contactSectionLabel) contactSectionLabel.textContent = getVal(lang, 'ui.contact_section_label');
 
     const contactPrimaryLabel = document.getElementById('contact-primary-label');
-    if (contactPrimaryLabel) contactPrimaryLabel.textContent = data.ui.primary_link_label;
+    if (contactPrimaryLabel) contactPrimaryLabel.textContent = getVal(lang, 'ui.primary_link_label');
 
     const footerWatermark = document.getElementById('footer-watermark');
-    if (footerWatermark) footerWatermark.textContent = data.ui.footer_watermark;
+    if (footerWatermark) footerWatermark.textContent = getVal(lang, 'ui.footer_watermark');
 
     const profileEmailLabel = document.getElementById('profile-email-label');
-    if (profileEmailLabel) profileEmailLabel.textContent = data.ui.email_label;
+    if (profileEmailLabel) profileEmailLabel.textContent = getVal(lang, 'ui.email_label');
 
     // --- Code Window values ---
     const cwName = document.getElementById('cw-name');
-    if (cwName) cwName.textContent = `"${data.ui.code_window_name}"`;
+    if (cwName) cwName.textContent = `"${getVal(lang, 'ui.code_window_name')}"`;
     const cwRole = document.getElementById('cw-role');
-    if (cwRole) cwRole.textContent = `"${data.ui.code_window_role}"`;
+    if (cwRole) cwRole.textContent = `"${getVal(lang, 'ui.code_window_role')}"`;
     const cwFocus = document.getElementById('cw-focus');
-    if (cwFocus) cwFocus.textContent = `"${data.ui.code_window_focus}"`;
+    if (cwFocus) cwFocus.textContent = `"${getVal(lang, 'ui.code_window_focus')}"`;
 
 
 
@@ -422,8 +451,9 @@ function render(lang) {
 
         let delayCounter = 0;
         
-        for (const [categoryKey, categoryTitle] of Object.entries(data.skills.categories)) {
-            const skillsList = data.skills[categoryKey];
+        const categories = getVal(lang, 'skills.categories', {});
+        for (const [categoryKey, categoryTitle] of Object.entries(categories)) {
+            const skillsList = getVal(lang, `skills.${categoryKey}`, []);
             if (!skillsList) continue;
 
             const theme = categoryThemes[categoryKey] || categoryThemes.core;
@@ -474,7 +504,7 @@ function render(lang) {
     }
 
     // --- Build Projects (Spotlight + Grid) ---
-    buildProjectsSection(data, lang);
+    buildProjectsSection(lang);
 }
 
 // ─── PROJECT ICON SVGs ───
@@ -489,30 +519,31 @@ const externalLinkSVG = `<svg class="w-4 h-4" fill="none" stroke="currentColor" 
 
 const codeSVG = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>`;
 
-function buildProjectsSection(data, lang) {
+function buildProjectsSection(lang) {
     const gridContainer = document.getElementById('projects-grid');
     const subtitleEl = document.getElementById('projects-subtitle');
 
-    if (subtitleEl) subtitleEl.textContent = data.ui.projects_subtitle;
+    if (subtitleEl) subtitleEl.textContent = getVal(lang, 'ui.projects_subtitle');
 
-    if (!data.projects || data.projects.length === 0) return;
+    const projects = getVal(lang, 'projects', []);
+    if (projects.length === 0) return;
 
     if (gridContainer) {
         gridContainer.innerHTML = '';
-        data.projects.forEach((proj, index) => {
-            gridContainer.appendChild(buildCompactCard(proj, data, index));
+        projects.forEach((proj, index) => {
+            gridContainer.appendChild(buildCompactCard(proj, lang, index));
         });
     }
 
     initProjectReveal();
 }
 
-function buildCompactCard(project, data, index) {
+function buildCompactCard(project, lang, index) {
     const wrap = document.createElement('div');
     wrap.className = `project-card-border project-reveal project-reveal-delay-${index} cursor-pointer group shrink-0 w-[85vw] snap-center md:w-auto md:shrink`;
     
     // When click, open modal
-    wrap.onclick = () => openProjModal(project, data);
+    wrap.onclick = () => openProjModal(project, lang);
 
     const inner = document.createElement('article');
     // The entire card becomes the Safari Browser Window
@@ -558,7 +589,7 @@ function buildCompactCard(project, data, index) {
     const centerSection = document.createElement('div');
     centerSection.className = 'flex-1 flex justify-center w-auto sm:w-1/3 relative z-30 min-w-0';
     centerSection.innerHTML = `
-      <a href="${hrefLink}" ${hrefLink !== '#' ? 'target="_blank" rel="noopener noreferrer"' : ''} title="${data.ui.visit_project || 'Visit Project'}" class="bg-[#12121a] border border-white/[0.04] text-[#8b919e] text-[10px] md:text-[11px] font-sans px-3 py-1.5 rounded-md flex items-center justify-between gap-3 w-full max-w-[260px] shadow-inner hover:bg-[#1a1a24] hover:text-[#cbd5e1] hover:border-white/[0.08] transition-all duration-300 group/url" onclick="event.stopPropagation();">
+      <a href="${hrefLink}" ${hrefLink !== '#' ? 'target="_blank" rel="noopener noreferrer"' : ''} title="${getVal(lang, 'ui.visit_project') || 'Visit Project'}" class="bg-[#12121a] border border-white/[0.04] text-[#8b919e] text-[10px] md:text-[11px] font-sans px-3 py-1.5 rounded-md flex items-center justify-between gap-3 w-full max-w-[260px] shadow-inner hover:bg-[#1a1a24] hover:text-[#cbd5e1] hover:border-white/[0.08] transition-all duration-300 group/url" onclick="event.stopPropagation();">
         <svg class="w-3.5 h-3.5 shrink-0 opacity-60 group-hover/url:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75M19.349 9.176c-.927-1.1-2.274-1.802-3.799-1.802" /></svg>
         <span class="truncate tracking-wide font-medium mt-px flex-1 text-center">${displayDomain}</span>
         <svg class="w-3 h-3 shrink-0 opacity-40 hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
@@ -597,7 +628,7 @@ function buildCompactCard(project, data, index) {
         imgWrap.appendChild(img);
     } else {
         imgWrap.classList.add('flex', 'items-center', 'justify-center');
-        imgWrap.innerHTML = `<span class="text-[#334155] font-mono text-sm">[${data.ui.no_preview}]</span>`;
+        imgWrap.innerHTML = `<span class="text-[#334155] font-mono text-sm">[${getVal(lang, 'ui.no_preview') || 'No Preview'}]</span>`;
     }
     
     const overlay = document.createElement('div');
@@ -613,7 +644,7 @@ function buildCompactCard(project, data, index) {
     // Hover "View Details" hint
     const hoverHint = document.createElement('div');
     hoverHint.className = 'absolute inset-0 flex items-center justify-center opacity-0 group-hover/browser:opacity-100 transition-opacity duration-300 bg-[#0f0f18]/40 backdrop-blur-[2px] z-20 pointer-events-none';
-    hoverHint.innerHTML = `<span class="bg-indigo-600 border border-indigo-500/50 text-white text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-lg shadow-xl shadow-indigo-900/50 flex items-center gap-2 transform translate-y-3 group-hover/browser:translate-y-0 transition-transform duration-300 ease-out"><span>${data.ui.view_details}</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></span>`;
+    hoverHint.innerHTML = `<span class="bg-indigo-600 border border-indigo-500/50 text-white text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-lg shadow-xl shadow-indigo-900/50 flex items-center gap-2 transform translate-y-3 group-hover/browser:translate-y-0 transition-transform duration-300 ease-out"><span>${getVal(lang, 'ui.view_details')}</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></span>`;
     imgWrap.appendChild(hoverHint);
 
     contentBody.appendChild(imgWrap);
@@ -656,7 +687,7 @@ function buildCompactCard(project, data, index) {
 }
 
 // Modal Logic
-function openProjModal(project, data) {
+function openProjModal(project, lang) {
     const overlay = document.getElementById('proj-modal-overlay');
     
     // Fill data
@@ -672,12 +703,12 @@ function openProjModal(project, data) {
     document.getElementById('proj-modal-title').textContent = project.name;
     document.getElementById('proj-modal-desc').textContent = project.description;
     
-    document.getElementById('proj-modal-role-label').textContent = data.ui.project_role_label || 'Role';
+    document.getElementById('proj-modal-role-label').textContent = getVal(lang, 'ui.project_role_label') || 'Role';
     document.getElementById('proj-modal-role').textContent = project.role;
 
-    document.getElementById('proj-modal-desc-label').textContent = data.ui.project_details_label;
+    document.getElementById('proj-modal-desc-label').textContent = getVal(lang, 'ui.project_details_label');
     
-    document.getElementById('proj-modal-tech-label').textContent = data.ui.tech_stack_label;
+    document.getElementById('proj-modal-tech-label').textContent = getVal(lang, 'ui.tech_stack_label');
     
     // Badges
     const badgesContainer = document.getElementById('proj-modal-badges');
@@ -710,7 +741,7 @@ function openProjModal(project, data) {
     const hlContainer = document.getElementById('proj-modal-highlights-container');
     if (project.highlights && project.highlights.length > 0) {
         hlContainer.classList.remove('hidden');
-        document.getElementById('proj-modal-hl-label').textContent = data.ui.project_highlights_label || 'Highlights';
+        document.getElementById('proj-modal-hl-label').textContent = getVal(lang, 'ui.project_highlights_label') || 'Highlights';
         
         const hlList = document.getElementById('proj-modal-highlights');
         hlList.innerHTML = '';
@@ -742,15 +773,23 @@ function openProjModal(project, data) {
     liveBtn.href = project.link;
     liveBtn.target = '_blank';
     liveBtn.className = 'project-action-btn project-action-primary flex-1 justify-center';
-    liveBtn.innerHTML = `${externalLinkSVG} <span>${data.ui.visit_project || 'Live Preview'}</span>`;
+    liveBtn.innerHTML = `${externalLinkSVG} <span>${getVal(lang, 'ui.visit_project') || 'Live Preview'}</span>`;
     actionsWrap.appendChild(liveBtn);
 
-    if (project.source) {
+    // Check if source button should be hidden (T015)
+    // We compare this project's source with the same project in the other locale
+    // Find index of current project to match in other locale
+    const projIndex = portfolioData[lang].projects.findIndex(p => p.name === project.name);
+    const otherLang = lang === 'ar' ? 'en' : 'ar';
+    const otherProj = portfolioData[otherLang].projects[projIndex];
+    const sourceHidden = project.source === '#' && (!otherProj || otherProj.source === '#');
+
+    if (project.source && !sourceHidden) {
         const srcBtn = document.createElement('a');
         srcBtn.href = project.source;
         srcBtn.target = '_blank';
         srcBtn.className = 'project-action-btn project-action-secondary flex-1 justify-center';
-        srcBtn.innerHTML = `${codeSVG} <span>${data.ui.view_source || 'Source Code'}</span>`;
+        srcBtn.innerHTML = `${codeSVG} <span>${getVal(lang, 'ui.view_source') || 'Source Code'}</span>`;
         actionsWrap.appendChild(srcBtn);
     }
 

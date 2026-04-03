@@ -29,6 +29,18 @@
 
 <body class="bg-[#0a0a0f] text-[#94a3b8] font-sans selection:bg-indigo-500/30 selection:text-white">
 
+  <noscript>
+    <div class="fixed inset-0 z-[1000] flex items-center justify-center bg-[#0a0a0f] p-6 text-center">
+      <div class="max-w-md p-8 rounded-2xl border border-red-500/20 bg-red-500/5 backdrop-blur-xl">
+        <h1 class="text-2xl font-bold text-white mb-4">JavaScript Required</h1>
+        <p class="text-[#94a3b8] mb-6">This portfolio requires JavaScript to render content dynamically from data.json. Please enable it to view my work.</p>
+        <div class="h-px bg-white/10 my-6"></div>
+        <h1 class="text-2xl font-bold text-white mb-4">تفعيل جافا سكريبت مطلوب</h1>
+        <p class="text-[#94a3b8]">هذا الموقع يحتاج إلى تفعيل جافا سكريبت لعرض المحتوى. يرجى تفعيله لمشاهدة أعمالي.</p>
+      </div>
+    </div>
+  </noscript>
+
 
   <!-- ═══ HEADER: Sticky Glassmorphic Navbar ═══ -->
   <div class="nav-container sticky top-0 z-50">
@@ -324,6 +336,23 @@
   </header>
 
   <main class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-16">
+
+    <!-- Data Loading Error Fallback (Initially Hidden) -->
+    <div id="data-error" class="hidden my-12 p-8 rounded-2xl border border-red-500/20 bg-red-500/5 backdrop-blur-xl text-center">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-500/10 text-red-400 mb-6">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+      </div>
+      <h2 class="text-xl font-bold text-white mb-2">Failed to load portfolio data</h2>
+      <p class="text-[#94a3b8] mb-8">There was a problem fetching the content. Please try refreshing the page.</p>
+      <div class="h-px bg-white/10 my-8"></div>
+      <h2 class="text-xl font-bold text-white mb-2">فشل في تحميل بيانات الموقع</h2>
+      <p class="text-[#94a3b8]">حدثت مشكلة أثناء جلب المحتوى. يرجى محاولة تحديث الصفحة.</p>
+      <button onclick="window.location.reload()" class="mt-6 px-6 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-all duration-300 border border-white/10 hover:border-white/20 cursor-pointer">
+        Try Again / أعِد المحاولة
+      </button>
+    </div>
 
     <!-- Skills Section -->
     <section id="skills" class="mb-24 scroll-mt-24">
