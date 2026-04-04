@@ -43,7 +43,7 @@
       "view_details": "عرض التفاصيل",
       "no_preview": "لا توجد معاينة",
       "email_label": "البريد",
-      "footer_watermark": "KOLOG MAGDY",
+      "footer_watermark": "KOLOG.M.M.Z",
       "code_window_name": "Kolog Magdy",
       "code_window_role": "Full-Stack Engineer",
       "code_window_focus": "Scalable Systems"
@@ -74,50 +74,27 @@
     "projects_title": "أبرز المشاريع",
     "projects": [
       {
-        "name": "طاجن (Tagen)",
-        "type": "منصّة ويب",
-        "description": "منصة تجارة إلكترونية متكاملة. تم التركيز على الإطلاق الفعلي (Production) والتعامل مع مستخدمين حقيقيين وتحقيق أهداف تجارية ملموسة.",
-        "role": "Full-Stack Developer — بناء الواجهة والنظام الخلفي والنشر",
+        "name": "طاجن (Tagen Foods)",
+        "type": "B2B Export Catalog & Lead Generation Portal",
+        "description": "منصة ويب B2B مخصصة لسوق التصدير العالمي. تعمل ككتالوج رقمي ديناميكي لمصنع أطعمة مجمدة لاستعراض القدرات الإنتاجية للمستوردين الأجانب، مع نظام مخصص لتوليد العملاء المحتملين (Lead Generation) وطلب عروض الأسعار بدلاً من الشراء المباشر.",
+        "role": "System Architect & Full-Stack Engineer",
         "year": "2025",
         "status": "live",
-        "status_label": "مشروع مُطلَق",
+        "status_label": "Live Production",
         "image": "954shots_so.jpeg",
         "highlights": [
-          "بنية متكاملة من الصفر حتى الإطلاق",
-          "أداء عالي مع مستخدمين حقيقيين",
-          "نظام طلبات وسلة مشتريات كامل"
+          "بناء كتالوج رقمي فائق السرعة موجه لخدمة المستوردين الأجانب",
+          "تصميم مسار مستخدم (User Journey) يركز بالكامل على الـ Lead Generation",
+          "ربط المنتجات بـ Sanity CMS لإدارة المحتوى المؤسسي بكفاءة"
         ],
         "tech_stack": [
-          "Next.js",
+          "Next.js (SSG)",
           "Tailwind CSS",
-          "React"
-        ],
-        "icon": "cart",
-        "link": "https://tagen.app",
-        "source": "#"
-      },
-      {
-        "name": "Go Pet",
-        "type": "موقع خدمي",
-        "description": "موقع خدمي للربط بين العملاء ومقدمي خدمات الحيوانات الأليفة. التركيز على سرعة التسليم وتلبية متطلبات العميل بدقة هندسية.",
-        "role": "Front-End Developer — بناء الواجهة وتجربة المستخدم",
-        "year": "2025",
-        "status": "live",
-        "status_label": "مشروع مُطلَق",
-        "image": "981shots_so.jpeg",
-        "highlights": [
-          "تسليم في وقت قياسي",
-          "واجهة تفاعلية سريعة الاستجابة",
-          "تصميم يركز على تجربة المستخدم"
-        ],
-        "tech_stack": [
-          "Astro",
-          "React",
-          "Tailwind CSS"
+          "Sanity (Headless CMS)"
         ],
         "icon": "globe",
-        "link": "https://gopet.net",
-        "source": "#"
+        "link": "https://tagenfoods.com",
+        "source": "https://github.com/KologMagdy/TagenFoods-B2B-Architecture"
       }
     ]
   },
@@ -165,7 +142,7 @@
       "view_details": "View Details",
       "no_preview": "No Preview Available",
       "email_label": "Email",
-      "footer_watermark": "KOLOG MAGDY",
+      "footer_watermark": "KOLOG.M.M.Z",
       "code_window_name": "Kolog Magdy",
       "code_window_role": "Full-Stack Engineer",
       "code_window_focus": "Scalable Systems"
@@ -196,50 +173,27 @@
     "projects_title": "Featured Projects",
     "projects": [
       {
-        "name": "Tagen",
-        "type": "Web Platform",
-        "description": "A full-fledged e-commerce platform. Focused on actual production launch, handling real users, and achieving tangible business objectives.",
-        "role": "Full-Stack Developer — Built the UI, backend systems, and deployment pipeline",
+        "name": "Tagen Foods",
+        "type": "B2B Export Catalog & Lead Generation Portal",
+        "description": "A B2B web platform built for the global export market. Serves as a dynamic digital catalog for a frozen food manufacturer to showcase production capabilities to foreign importers, featuring a custom lead generation and quote request system instead of direct purchase.",
+        "role": "System Architect & Full-Stack Engineer",
         "year": "2025",
         "status": "live",
-        "status_label": "Shipped & Live",
+        "status_label": "Live Production",
         "image": "954shots_so.jpeg",
         "highlights": [
-          "End-to-end architecture from scratch to production",
-          "High performance under real user load",
-          "Complete order & cart management system"
+          "Built a high-performance digital catalog serving foreign importers",
+          "Designed a user journey focused entirely on Lead Generation",
+          "Integrated products with Sanity CMS for efficient enterprise content management"
         ],
         "tech_stack": [
-          "Next.js",
+          "Next.js (SSG)",
           "Tailwind CSS",
-          "React"
-        ],
-        "icon": "cart",
-        "link": "https://tagen.app",
-        "source": "#"
-      },
-      {
-        "name": "Go Pet",
-        "type": "Service Website",
-        "description": "Service-oriented platform connecting pet owners with trusted service providers. Focused on fast delivery and engineering precision to meet exact client specs.",
-        "role": "Front-End Developer — Built the interface and user experience",
-        "year": "2025",
-        "status": "live",
-        "status_label": "Shipped & Live",
-        "image": "981shots_so.jpeg",
-        "highlights": [
-          "Delivered on a tight deadline",
-          "Responsive, high-performance interface",
-          "UX-driven design approach"
-        ],
-        "tech_stack": [
-          "Astro",
-          "React",
-          "Tailwind CSS"
+          "Sanity (Headless CMS)"
         ],
         "icon": "globe",
-        "link": "https://gopet.net",
-        "source": "#"
+        "link": "https://tagenfoods.com",
+        "source": "https://github.com/KologMagdy/TagenFoods-B2B-Architecture"
       }
     ]
   }
