@@ -264,10 +264,25 @@ function render(lang) {
     // --- HTML Attributes & Meta ---
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.title = `${getVal(lang, 'personal_info.name')} | ${getVal(lang, 'personal_info.title')}`;
+    const pageTitle = `${getVal(lang, 'personal_info.name')} | ${getVal(lang, 'personal_info.title')}`;
+    const pageDesc = getVal(lang, 'personal_info.tagline');
     
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.content = getVal(lang, 'personal_info.tagline');
+    document.title = pageTitle;
+    
+    const metaDesc = document.getElementById('meta-description');
+    if (metaDesc) metaDesc.content = pageDesc;
+
+    // Open Graph / Twitter Tags (SEO & Social Previews)
+    const setContent = (id, content) => {
+        const el = document.getElementById(id);
+        if (el) el.content = content;
+    };
+    
+    setContent('og-title', pageTitle);
+    setContent('og-description', pageDesc);
+    setContent('og-locale', lang === 'ar' ? 'ar_AR' : 'en_US');
+    setContent('twitter-title', pageTitle);
+    setContent('twitter-description', pageDesc);
 
     // --- Nav Text ---
     const navTexts = navTranslations[lang];
