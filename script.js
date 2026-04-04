@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initActiveSectionTracking();
     initProfileCard();
+
+    // 4. Auto-fit initial watermark text (before data.json loads)
+    const wm = document.getElementById('footer-watermark');
+    if (wm) autoFitWatermark(wm);
 });
 
 // ─── NAV: Scroll-aware show/hide + glassmorphism intensify ───
@@ -204,6 +208,55 @@ const navTranslations = {
     }
 };
 
+
+// ─── FOOTER WATERMARK: Auto-fit text to container width ───
+function autoFitWatermark(el) {
+    const container = el.parentElement;
+    if (!container) return;
+
+    // Measure the text's natural width at a known reference font-size
+    // using a temporary off-screen span with the same font properties.
+    // We hardcode letter-spacing as -0.05em (Tailwind's tracking-tighter)
+    // because getComputedStyle returns px which won't scale correctly.
+    const refSize = 100; // px reference for measurement
+    const measurer = document.createElement('span');
+    measurer.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;' +
+        'font-family:' + getComputedStyle(el).fontFamily + ';' +
+        'font-weight:' + getComputedStyle(el).fontWeight + ';' +
+        'letter-spacing:-0.05em;' +
+        'text-transform:uppercase;font-size:' + refSize + 'px;';
+    measurer.textContent = el.textContent;
+    document.body.appendChild(measurer);
+
+    const textWidth = measurer.offsetWidth;
+    document.body.removeChild(measurer);
+
+    if (textWidth <= 0) return;
+
+    // Available width = container width minus horizontal padding
+    const containerStyle = getComputedStyle(container);
+    const padLeft = parseFloat(containerStyle.paddingLeft) || 0;
+    const padRight = parseFloat(containerStyle.paddingRight) || 0;
+    const availableWidth = container.clientWidth - padLeft - padRight;
+
+    // Calculate the font-size that makes text fit, with a 5% safety margin
+    // (negative letter-spacing can cause edge characters to extend beyond the layout box)
+    const idealSize = (availableWidth / textWidth) * refSize * 0.95;
+
+    // Cap at a maximum of 17vw so it doesn't get absurdly large on wide screens
+    const maxSize = (17 / 100) * window.innerWidth;
+    el.style.fontSize = Math.min(idealSize, maxSize) + 'px';
+}
+
+// Re-fit watermark on window resize
+let watermarkResizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(watermarkResizeTimer);
+    watermarkResizeTimer = setTimeout(() => {
+        const el = document.getElementById('footer-watermark');
+        if (el) autoFitWatermark(el);
+    }, 100);
+}, { passive: true });
 
 function render(lang) {
     if (!portfolioData || !portfolioData[lang]) return;
@@ -400,7 +453,10 @@ function render(lang) {
     if (contactPrimaryLabel) contactPrimaryLabel.textContent = getVal(lang, 'ui.primary_link_label');
 
     const footerWatermark = document.getElementById('footer-watermark');
-    if (footerWatermark) footerWatermark.textContent = getVal(lang, 'ui.footer_watermark');
+    if (footerWatermark) {
+        footerWatermark.textContent = getVal(lang, 'ui.footer_watermark');
+        autoFitWatermark(footerWatermark);
+    }
 
     const profileEmailLabel = document.getElementById('profile-email-label');
     if (profileEmailLabel) profileEmailLabel.textContent = getVal(lang, 'ui.email_label');
