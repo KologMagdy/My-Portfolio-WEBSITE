@@ -6,7 +6,7 @@ function getVal(lang, path, fallback = '') {
     const keys = path.split('.');
     let current = portfolioData[lang];
     let currentEn = portfolioData['en'];
-    
+
     for (const key of keys) {
         current = current ? current[key] : undefined;
         currentEn = currentEn ? currentEn[key] : undefined;
@@ -266,9 +266,9 @@ function render(lang) {
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     const pageTitle = `${getVal(lang, 'personal_info.name')} | ${getVal(lang, 'personal_info.title')}`;
     const pageDesc = getVal(lang, 'personal_info.tagline');
-    
+
     document.title = pageTitle;
-    
+
     const metaDesc = document.getElementById('meta-description');
     if (metaDesc) metaDesc.content = pageDesc;
 
@@ -277,7 +277,7 @@ function render(lang) {
         const el = document.getElementById(id);
         if (el) el.content = content;
     };
-    
+
     setContent('og-title', pageTitle);
     setContent('og-description', pageDesc);
     setContent('og-locale', lang === 'ar' ? 'ar_AR' : 'en_US');
@@ -306,16 +306,16 @@ function render(lang) {
     // --- Static Text & Links ---
     const heroName = document.getElementById('hero-name');
     if (heroName) heroName.textContent = getVal(lang, 'personal_info.name');
-    
+
     const heroTitle = document.getElementById('hero-title');
     if (heroTitle) heroTitle.textContent = getVal(lang, 'personal_info.title');
-    
+
     const heroTagline = document.getElementById('hero-tagline');
     if (heroTagline) heroTagline.textContent = getVal(lang, 'personal_info.tagline');
 
     const heroStatus = document.getElementById('hero-status');
     if (heroStatus) heroStatus.textContent = getVal(lang, 'ui.hero_status');
-    
+
     const emailLink = document.getElementById('hero-email');
     if (emailLink) {
         emailLink.href = '#contact';
@@ -338,13 +338,13 @@ function render(lang) {
 
     // --- Social Links Hiding Logic (T014) ---
     const isHidden = (key) => {
-        return portfolioData['en'].personal_info.links[key] === '#' && 
-               portfolioData['ar'].personal_info.links[key] === '#';
+        return portfolioData['en'].personal_info.links[key] === '#' &&
+            portfolioData['ar'].personal_info.links[key] === '#';
     };
 
     const githubLink = document.getElementById('footer-github');
     if (githubLink) githubLink.href = getVal(lang, 'personal_info.links.github');
-    
+
     const linkedinLink = document.getElementById('footer-linkedin');
     if (linkedinLink) linkedinLink.href = getVal(lang, 'personal_info.links.linkedin');
 
@@ -392,13 +392,13 @@ function render(lang) {
     if (mobileGithub) mobileGithub.href = getVal(lang, 'personal_info.links.github');
     const mobileLinkedin = document.getElementById('mobile-linkedin');
     if (mobileLinkedin) mobileLinkedin.href = getVal(lang, 'personal_info.links.linkedin');
-    
+
     const skillsTitle = document.getElementById('skills-title');
     if (skillsTitle) skillsTitle.textContent = getVal(lang, 'ui.skills_title');
-    
+
     const projTitleEl = document.getElementById('projects-title');
     if (projTitleEl) projTitleEl.textContent = getVal(lang, 'projects_title');
-    
+
     const footerCopyright = document.getElementById('footer-copyright');
     if (footerCopyright) {
         footerCopyright.textContent = `© ${new Date().getFullYear()} ${getVal(lang, 'personal_info.name')}`;
@@ -407,7 +407,7 @@ function render(lang) {
     // --- Contact Section ---
     const contactTitle = document.getElementById('contact-title');
     if (contactTitle) contactTitle.textContent = getVal(lang, 'ui.footer_title') || 'Contact Me';
-    
+
     const contactSubtitle = document.getElementById('contact-subtitle');
     const contactSubtitleAccent = document.getElementById('contact-subtitle-accent');
     if (contactSubtitle && contactSubtitleAccent) {
@@ -422,19 +422,19 @@ function render(lang) {
         );
         contactSubtitleAccent.textContent = getVal(lang, 'ui.contact_subtitle_accent');
     }
-    
+
     const contactText = document.getElementById('contact-text');
     if (contactText) contactText.textContent = getVal(lang, 'ui.contact_text');
-    
+
     const contactEmailBtn = document.getElementById('contact-email-btn');
     const userEmail = getVal(lang, 'personal_info.links.email');
     if (contactEmailBtn) contactEmailBtn.href = userEmail;
-    
+
     const contactBtnText = document.getElementById('contact-btn-text');
     if (contactBtnText && userEmail) {
         contactBtnText.textContent = userEmail.replace('mailto:', '');
     }
-    
+
     const socialTitle = document.getElementById('social-title');
     if (socialTitle) socialTitle.textContent = getVal(lang, 'ui.social_title');
 
@@ -455,7 +455,7 @@ function render(lang) {
         label.textContent = lang === 'ar' ? 'English' : 'عربي';
         toggleBtn.appendChild(label);
     }
-    
+
     // Update IDE Footer Status
     const statusLang = document.getElementById('status-lang');
     if (statusLang) statusLang.textContent = lang === 'ar' ? 'AR' : 'EN';
@@ -492,7 +492,7 @@ function render(lang) {
     const skillsGrid = document.getElementById('skills-grid');
     if (skillsGrid) {
         skillsGrid.innerHTML = '';
-        
+
         const categoryThemes = {
             core: {
                 accentBorder: 'via-indigo-500/80',
@@ -521,7 +521,7 @@ function render(lang) {
         };
 
         let delayCounter = 0;
-        
+
         const categories = getVal(lang, 'skills.categories', {});
         for (const [categoryKey, categoryTitle] of Object.entries(categories)) {
             const skillsList = getVal(lang, `skills.${categoryKey}`, []);
@@ -561,7 +561,7 @@ function render(lang) {
             skillsList.forEach((skill) => {
                 const pill = document.createElement('div');
                 pill.className = `inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-white/[0.06] bg-[#151522] text-[#94a3b8] font-mono text-sm transition-colors duration-200 cursor-default hover:bg-[#1a1a2e] ${theme.pillHoverBorder} ${theme.pillHoverText}`;
-                
+
                 pill.innerHTML = `
                   <span class="w-1.5 h-1.5 rounded-full ${theme.pillDot}"></span>
                   ${skill}
@@ -612,7 +612,7 @@ function buildProjectsSection(lang) {
 function buildCompactCard(project, lang, index) {
     const wrap = document.createElement('div');
     wrap.className = `project-card-border project-reveal project-reveal-delay-${index} cursor-pointer group shrink-0 w-[85vw] snap-center md:w-auto md:shrink`;
-    
+
     // When click, open modal
     wrap.onclick = () => openProjModal(project, lang);
 
@@ -623,16 +623,16 @@ function buildCompactCard(project, lang, index) {
     // Browser Title Bar (Fully detailed Safari MacOS style)
     const titleBar = document.createElement('div');
     titleBar.className = 'flex items-center justify-between px-4 py-2.5 bg-[#1e1e24] border-b border-black/40 shrink-0 z-20 relative gap-4';
-    
+
     // Auto-generate URL from project linkage correctly
     let displayDomain = '';
     let hrefLink = project.link && project.link !== '#' ? project.link : '#';
-    
+
     if (project.link && project.link !== '#') {
         try {
             let parseUrl = project.link.startsWith('http') ? project.link : 'https://' + project.link;
             displayDomain = new URL(parseUrl).hostname.replace('www.', '');
-        } catch(e) {
+        } catch (e) {
             displayDomain = project.link;
         }
     } else {
@@ -689,7 +689,7 @@ function buildCompactCard(project, lang, index) {
     // Image Banner Container (Flush with edges)
     const imgWrap = document.createElement('div');
     imgWrap.className = 'project-image-container relative w-full h-40 md:h-48 overflow-hidden bg-[#0a0a10] border-b border-white/[0.04] shrink-0';
-    
+
     if (project.image) {
         const img = document.createElement('img');
         img.src = project.image;
@@ -701,7 +701,7 @@ function buildCompactCard(project, lang, index) {
         imgWrap.classList.add('flex', 'items-center', 'justify-center');
         imgWrap.innerHTML = `<span class="text-[#334155] font-mono text-sm">[${getVal(lang, 'ui.no_preview') || 'No Preview'}]</span>`;
     }
-    
+
     const overlay = document.createElement('div');
     overlay.className = 'project-image-overlay absolute inset-0 opacity-40 group-hover/browser:opacity-20 transition-opacity bg-gradient-to-t from-[#0a0a10] via-transparent to-transparent pointer-events-none z-10';
     imgWrap.appendChild(overlay);
@@ -711,7 +711,7 @@ function buildCompactCard(project, lang, index) {
     clickIndicator.className = 'absolute bottom-3 end-3 bg-black/60 backdrop-blur-md border border-white/10 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-xl transition-transform group-hover/browser:scale-105 z-20';
     clickIndicator.innerHTML = `<svg class="w-3.5 h-3.5 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>`;
     imgWrap.appendChild(clickIndicator);
-    
+
     // Hover "View Details" hint
     const hoverHint = document.createElement('div');
     hoverHint.className = 'absolute inset-0 flex items-center justify-center opacity-0 group-hover/browser:opacity-100 transition-opacity duration-300 bg-[#0f0f18]/40 backdrop-blur-[2px] z-20 pointer-events-none';
@@ -747,7 +747,7 @@ function buildCompactCard(project, lang, index) {
 
     titleRow.appendChild(nameEl);
     titleRow.appendChild(rightSide);
-    
+
     detailsWrap.appendChild(titleRow);
     contentBody.appendChild(detailsWrap);
 
@@ -760,7 +760,7 @@ function buildCompactCard(project, lang, index) {
 // Modal Logic
 function openProjModal(project, lang) {
     const overlay = document.getElementById('proj-modal-overlay');
-    
+
     // Fill data
     const imgEl = document.getElementById('proj-modal-img');
     if (project.image) {
@@ -773,23 +773,23 @@ function openProjModal(project, lang) {
     document.getElementById('proj-modal-icon').innerHTML = projectIcons[project.icon] || projectIcons.code;
     document.getElementById('proj-modal-title').textContent = project.name;
     document.getElementById('proj-modal-desc').textContent = project.description;
-    
+
     document.getElementById('proj-modal-role-label').textContent = getVal(lang, 'ui.project_role_label') || 'Role';
     document.getElementById('proj-modal-role').textContent = project.role;
 
     document.getElementById('proj-modal-desc-label').textContent = getVal(lang, 'ui.project_details_label');
-    
+
     document.getElementById('proj-modal-tech-label').textContent = getVal(lang, 'ui.tech_stack_label');
-    
+
     // Badges
     const badgesContainer = document.getElementById('proj-modal-badges');
     badgesContainer.innerHTML = '';
-    
+
     const typeBadge = document.createElement('span');
     typeBadge.className = 'text-[10px] font-mono font-semibold text-indigo-400/80 uppercase tracking-widest bg-indigo-400/[0.06] px-2.5 py-1 rounded-md border border-indigo-400/10';
     typeBadge.textContent = project.type;
     badgesContainer.appendChild(typeBadge);
-    
+
     const yearBadge = document.createElement('span');
     yearBadge.className = 'project-year-badge';
     yearBadge.textContent = project.year;
@@ -813,7 +813,7 @@ function openProjModal(project, lang) {
     if (project.highlights && project.highlights.length > 0) {
         hlContainer.classList.remove('hidden');
         document.getElementById('proj-modal-hl-label').textContent = getVal(lang, 'ui.project_highlights_label') || 'Highlights';
-        
+
         const hlList = document.getElementById('proj-modal-highlights');
         hlList.innerHTML = '';
         project.highlights.forEach(hl => {
@@ -839,7 +839,7 @@ function openProjModal(project, lang) {
     // Actions
     const actionsWrap = document.getElementById('proj-modal-actions');
     actionsWrap.innerHTML = '';
-    
+
     const liveBtn = document.createElement('a');
     liveBtn.href = project.link;
     liveBtn.target = '_blank';
@@ -867,7 +867,7 @@ function openProjModal(project, lang) {
     // Show modal
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden'; // prevent bg scroll
-    
+
     // Slight animation
     const card = document.getElementById('proj-modal-card');
     card.animate([
@@ -877,7 +877,7 @@ function openProjModal(project, lang) {
 }
 
 function closeProjModal(e) {
-    if(e) e.preventDefault();
+    if (e) e.preventDefault();
     const overlay = document.getElementById('proj-modal-overlay');
     const card = document.getElementById('proj-modal-card');
 
@@ -896,12 +896,12 @@ function closeProjModal(e) {
 document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.getElementById('proj-modal-close');
     const backdrop = document.getElementById('proj-modal-backdrop');
-    if(closeBtn) closeBtn.addEventListener('click', closeProjModal);
-    if(backdrop) backdrop.addEventListener('click', closeProjModal);
-    
+    if (closeBtn) closeBtn.addEventListener('click', closeProjModal);
+    if (backdrop) backdrop.addEventListener('click', closeProjModal);
+
     // Override profile listener to not break existing DOM tree structure
     const pcloseBtn = document.getElementById('profile-modal-close');
-    if(pcloseBtn && !pcloseBtn.hasAttribute('data-bound')) {
+    if (pcloseBtn && !pcloseBtn.hasAttribute('data-bound')) {
         // Just letting existing logic handle it, don't overwrite
     }
 });
