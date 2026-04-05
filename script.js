@@ -530,7 +530,7 @@ function render(lang) {
             const theme = categoryThemes[categoryKey] || categoryThemes.core;
 
             const card = document.createElement('div');
-            card.className = `project-reveal project-reveal-delay-${(delayCounter % 3) + 1} flex flex-col bg-[#0f0f18] border border-white/[0.06] rounded-2xl p-6 md:p-7 transition-all duration-300 relative group overflow-hidden shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/40 hover:-translate-y-1 hover:bg-[#13131e]`;
+            card.className = `project-reveal project-reveal-delay-${(delayCounter % 3) + 1} flex flex-col bg-bg-card border border-white/[0.06] rounded-2xl p-6 md:p-7 transition-all duration-300 relative group overflow-hidden shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/40 hover:-translate-y-1 hover:bg-bg-window-title`;
             delayCounter++;
 
             // Top gradient accent line (revealed on hover)
@@ -547,7 +547,7 @@ function render(lang) {
             iconWrap.innerHTML = theme.svg;
 
             const title = document.createElement('h3');
-            title.className = "text-xl font-bold text-[#e2e8f0] tracking-tight";
+            title.className = "text-xl font-bold text-text-heading tracking-tight";
             title.textContent = categoryTitle;
 
             header.appendChild(iconWrap);
@@ -560,7 +560,7 @@ function render(lang) {
 
             skillsList.forEach((skill) => {
                 const pill = document.createElement('div');
-                pill.className = `inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-white/[0.06] bg-[#151522] text-[#94a3b8] font-mono text-sm transition-colors duration-200 cursor-default hover:bg-[#1a1a2e] ${theme.pillHoverBorder} ${theme.pillHoverText}`;
+                pill.className = `inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-white/[0.06] bg-bg-pill text-text-main font-mono text-sm transition-colors duration-200 cursor-default hover:bg-bg-pill-hover ${theme.pillHoverBorder} ${theme.pillHoverText}`;
 
                 pill.innerHTML = `
                   <span class="w-1.5 h-1.5 rounded-full ${theme.pillDot}"></span>
@@ -612,7 +612,7 @@ function buildProjectsSection(lang) {
 function buildCompactCard(project, lang, index) {
     const wrap = document.createElement('article');
     // State-of-the-art highly aesthetic monolithic card
-    wrap.className = `project-reveal project-reveal-delay-${index} cursor-pointer group flex flex-col relative w-[85vw] sm:w-[360px] md:w-[400px] shrink-0 snap-center rounded-[1.25rem] bg-[#0c0c16] border border-white/5 hover:border-indigo-500/40 transition-all duration-500 overflow-hidden shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-indigo-500/10`;
+    wrap.className = `project-reveal project-reveal-delay-${index} cursor-pointer group flex flex-col relative w-[85vw] sm:w-[360px] md:w-[400px] shrink-0 snap-center rounded-[1.25rem] bg-bg-modal border border-white/5 hover:border-indigo-500/40 transition-all duration-500 overflow-hidden shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-indigo-500/10`;
     
     wrap.onclick = () => openProjModal(project, lang);
 
@@ -634,7 +634,7 @@ function buildCompactCard(project, lang, index) {
     // 1. IMAGE SECTION (Top Half)
     // ==========================================
     const imgWrap = document.createElement('div');
-    imgWrap.className = 'relative w-full aspect-[4/3] bg-[#050508] overflow-hidden';
+    imgWrap.className = 'relative w-full aspect-[4/3] bg-bg-preview-skeleton overflow-hidden';
 
     if (project.image) {
         const img = document.createElement('img');
@@ -645,19 +645,19 @@ function buildCompactCard(project, lang, index) {
         imgWrap.appendChild(img);
     } else {
         imgWrap.classList.add('flex', 'items-center', 'justify-center');
-        imgWrap.innerHTML = `<span class="text-[#334155] font-mono text-xs font-bold tracking-widest">[ ${getVal(lang, 'ui.no_preview') || 'NO PREVIEW'} ]</span>`;
+        imgWrap.innerHTML = `<span class="text-border-main font-mono text-xs font-bold tracking-widest">[ ${getVal(lang, 'ui.no_preview') || 'NO PREVIEW'} ]</span>`;
     }
 
     // Gradient Overlay to ensure bottom contrast and blend
     const gradientOverlay = document.createElement('div');
-    gradientOverlay.className = 'absolute inset-0 bg-gradient-to-t from-[#0c0c16] via-[#0c0c16]/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-70 pointer-events-none';
+    gradientOverlay.className = 'absolute inset-0 bg-gradient-to-t from-bg-modal via-bg-modal/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-70 pointer-events-none';
     imgWrap.appendChild(gradientOverlay);
 
     // Floating Type Badge (Top-End) overlaying the image
     const typeBadgeWrap = document.createElement('div');
     typeBadgeWrap.className = 'absolute top-4 end-4 z-10 max-w-[80%]'; // protects from too long texts
     typeBadgeWrap.innerHTML = `
-      <div class="bg-[#050508]/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full flex items-center shadow-lg">
+      <div class="bg-bg-preview-skeleton/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full flex items-center shadow-lg">
          <span class="text-[9px] md:text-[10px] font-mono font-semibold text-indigo-300 uppercase tracking-widest truncate">${project.type}</span>
       </div>
     `;
@@ -709,7 +709,7 @@ function buildCompactCard(project, lang, index) {
 
     // URL / Domain Row
     const linkRow = document.createElement('div');
-    linkRow.className = 'flex items-center mt-3 text-[#64748b] min-w-0 w-full hover:text-[#94a3b8] transition-colors duration-300';
+    linkRow.className = 'flex items-center mt-3 text-text-muted min-w-0 w-full hover:text-text-main transition-colors duration-300';
     linkRow.innerHTML = `
       <svg class="w-4 h-4 me-2 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
       <span class="text-sm font-mono tracking-wide truncate w-full">${displayDomain}</span>
@@ -761,7 +761,7 @@ function openProjModal(project, lang) {
     badgesContainer.appendChild(typeBadge);
 
     const yearBadge = document.createElement('span');
-    yearBadge.className = 'project-year-badge';
+    yearBadge.className = 'text-[10px] font-mono font-semibold text-text-secondary uppercase tracking-widest bg-bg-pill px-2.5 py-1 rounded-md border border-border-main';
     yearBadge.textContent = project.year;
     badgesContainer.appendChild(yearBadge);
 
@@ -801,7 +801,7 @@ function openProjModal(project, lang) {
     techWrap.innerHTML = '';
     project.tech_stack.forEach(tech => {
         const pill = document.createElement('span');
-        pill.className = 'tech-pill';
+        pill.className = 'relative px-3 py-1 text-[11px] font-mono font-medium rounded-full text-syntax-key bg-accent-indigo/[0.08] border border-accent-indigo/[0.12] transition-colors duration-250 tracking-wide hover:bg-accent-indigo/[0.14] hover:border-accent-indigo/[0.25] hover:text-accent-indigo-lighter';
         pill.textContent = tech;
         techWrap.appendChild(pill);
     });
@@ -813,7 +813,7 @@ function openProjModal(project, lang) {
     const liveBtn = document.createElement('a');
     liveBtn.href = project.link;
     liveBtn.target = '_blank';
-    liveBtn.className = 'project-action-btn project-action-primary flex-1 justify-center';
+    liveBtn.className = 'inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-[13px] font-semibold font-sans transition-all duration-300 bg-accent-indigo/[0.12] text-syntax-key border border-accent-indigo/[0.18] hover:bg-accent-indigo/[0.22] hover:border-accent-indigo/[0.4] hover:text-accent-indigo-lightest hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(var(--accent-indigo),0.15)] flex-1 justify-center cursor-pointer no-underline';
     liveBtn.innerHTML = `${externalLinkSVG} <span>${getVal(lang, 'ui.visit_project') || 'Live Preview'}</span>`;
     actionsWrap.appendChild(liveBtn);
 
@@ -829,7 +829,7 @@ function openProjModal(project, lang) {
         const srcBtn = document.createElement('a');
         srcBtn.href = project.source;
         srcBtn.target = '_blank';
-        srcBtn.className = 'project-action-btn project-action-secondary flex-1 justify-center';
+        srcBtn.className = 'inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-[13px] font-semibold font-sans transition-all duration-300 bg-pure-white/[0.03] text-text-muted border border-pure-white/[0.06] hover:bg-pure-white/[0.06] hover:border-pure-white/[0.12] hover:text-text-main hover:-translate-y-[2px] flex-1 justify-center cursor-pointer no-underline';
         srcBtn.innerHTML = `${codeSVG} <span>${getVal(lang, 'ui.view_source') || 'Source Code'}</span>`;
         actionsWrap.appendChild(srcBtn);
     }
