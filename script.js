@@ -610,24 +610,15 @@ function buildProjectsSection(lang) {
 }
 
 function buildCompactCard(project, lang, index) {
-    const wrap = document.createElement('div');
-    wrap.className = `project-card-border project-reveal project-reveal-delay-${index} cursor-pointer group shrink-0 w-[85vw] snap-center md:w-auto md:shrink`;
-
-    // When click, open modal
+    const wrap = document.createElement('article');
+    // State-of-the-art highly aesthetic monolithic card
+    wrap.className = `project-reveal project-reveal-delay-${index} cursor-pointer group flex flex-col relative w-[85vw] sm:w-[360px] md:w-[400px] shrink-0 snap-center rounded-[1.25rem] bg-[#0c0c16] border border-white/5 hover:border-indigo-500/40 transition-all duration-500 overflow-hidden shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-indigo-500/10`;
+    
     wrap.onclick = () => openProjModal(project, lang);
 
-    const inner = document.createElement('article');
-    // The entire card becomes the Safari Browser Window
-    inner.className = 'project-card-inner relative flex flex-col h-full w-full rounded-xl overflow-hidden border border-white/[0.06] bg-[#0c0c16] group/browser shadow-lg shadow-black/20';
-
-    // Browser Title Bar (Fully detailed Safari MacOS style)
-    const titleBar = document.createElement('div');
-    titleBar.className = 'flex items-center justify-between px-4 py-2.5 bg-[#1e1e24] border-b border-black/40 shrink-0 z-20 relative gap-4';
-
-    // Auto-generate URL from project linkage correctly
+    // Auto-generate URL
     let displayDomain = '';
     let hrefLink = project.link && project.link !== '#' ? project.link : '#';
-
     if (project.link && project.link !== '#') {
         try {
             let parseUrl = project.link.startsWith('http') ? project.link : 'https://' + project.link;
@@ -639,121 +630,100 @@ function buildCompactCard(project, lang, index) {
         displayDomain = (project.name || '').toLowerCase().replace(/[^a-z0-9]/g, '') + '.app';
     }
 
-    // Left Section: Traffic Lights & Nav Controls
-    const leftSection = document.createElement('div');
-    leftSection.className = 'flex items-center w-1/3 gap-4 shrink-0';
-    leftSection.innerHTML = `
-      <div class="flex gap-2 shrink-0">
-        <span class="w-[11px] h-[11px] rounded-full bg-[#ff5f56] border border-[#e0443e]"></span>
-        <span class="w-[11px] h-[11px] rounded-full bg-[#ffbd2e] border border-[#dea123]"></span>
-        <span class="w-[11px] h-[11px] rounded-full bg-[#27c93f] border border-[#1aab29]"></span>
-      </div>
-      <div class="hidden sm:flex items-center gap-3 text-[#475569] ms-2">
-        <svg class="w-4 h-4 hover:text-[#8b919e] transition-colors cursor-default" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h7" /></svg>
-        <div class="h-3 w-px bg-white/10 mx-0.5"></div>
-        <svg class="w-4 h-4 hover:text-[#8b919e] transition-colors cursor-default" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-        <svg class="w-4 h-4 opacity-40 hover:text-[#8b919e] transition-colors cursor-default" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-      </div>
-    `;
-
-    // Center Section: Interactive URL Bar
-    const centerSection = document.createElement('div');
-    centerSection.className = 'flex-1 flex justify-center w-auto sm:w-1/3 relative z-30 min-w-0';
-    centerSection.innerHTML = `
-      <a href="${hrefLink}" ${hrefLink !== '#' ? 'target="_blank" rel="noopener noreferrer"' : ''} title="${getVal(lang, 'ui.visit_project') || 'Visit Project'}" class="bg-[#12121a] border border-white/[0.04] text-[#8b919e] text-[10px] md:text-[11px] font-sans px-3 py-1.5 rounded-md flex items-center justify-between gap-3 w-full max-w-[260px] shadow-inner hover:bg-[#1a1a24] hover:text-[#cbd5e1] hover:border-white/[0.08] transition-all duration-300 group/url" onclick="event.stopPropagation();">
-        <svg class="w-3.5 h-3.5 shrink-0 opacity-60 group-hover/url:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75M19.349 9.176c-.927-1.1-2.274-1.802-3.799-1.802" /></svg>
-        <span class="truncate tracking-wide font-medium mt-px flex-1 text-center">${displayDomain}</span>
-        <svg class="w-3 h-3 shrink-0 opacity-40 hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-      </a>
-    `;
-
-    // Right Section: Tools / Extensions (hidden on mobile)
-    const rightSection = document.createElement('div');
-    rightSection.className = 'w-1/3 hidden sm:flex items-center justify-end gap-3.5 text-[#475569] shrink-0';
-    rightSection.innerHTML = `
-      <svg class="w-4 h-4 hover:text-[#8b919e] transition-colors cursor-default" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
-      <svg class="w-4 h-4 hover:text-[#8b919e] transition-colors cursor-default" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4" /></svg>
-      <svg class="w-4 h-4 hover:text-[#8b919e] transition-colors cursor-default" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" /></svg>
-    `;
-
-    titleBar.appendChild(leftSection);
-    titleBar.appendChild(centerSection);
-    titleBar.appendChild(rightSection);
-
-    inner.appendChild(titleBar);
-
-    // Browser Content Body (Image + Details)
-    const contentBody = document.createElement('div');
-    contentBody.className = 'flex-1 flex flex-col relative z-10';
-
-    // Image Banner Container (Flush with edges)
+    // ==========================================
+    // 1. IMAGE SECTION (Top Half)
+    // ==========================================
     const imgWrap = document.createElement('div');
-    imgWrap.className = 'project-image-container relative w-full h-40 md:h-48 overflow-hidden bg-[#0a0a10] border-b border-white/[0.04] shrink-0';
+    imgWrap.className = 'relative w-full aspect-[4/3] bg-[#050508] overflow-hidden';
 
     if (project.image) {
         const img = document.createElement('img');
         img.src = project.image;
         img.alt = project.name;
-        img.className = 'project-image-inner w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover/browser:scale-105';
+        img.className = 'w-full h-full object-cover object-top transition-transform duration-1000 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:scale-110';
         img.loading = 'lazy';
         imgWrap.appendChild(img);
     } else {
         imgWrap.classList.add('flex', 'items-center', 'justify-center');
-        imgWrap.innerHTML = `<span class="text-[#334155] font-mono text-sm">[${getVal(lang, 'ui.no_preview') || 'No Preview'}]</span>`;
+        imgWrap.innerHTML = `<span class="text-[#334155] font-mono text-xs font-bold tracking-widest">[ ${getVal(lang, 'ui.no_preview') || 'NO PREVIEW'} ]</span>`;
     }
 
-    const overlay = document.createElement('div');
-    overlay.className = 'project-image-overlay absolute inset-0 opacity-40 group-hover/browser:opacity-20 transition-opacity bg-gradient-to-t from-[#0a0a10] via-transparent to-transparent pointer-events-none z-10';
-    imgWrap.appendChild(overlay);
+    // Gradient Overlay to ensure bottom contrast and blend
+    const gradientOverlay = document.createElement('div');
+    gradientOverlay.className = 'absolute inset-0 bg-gradient-to-t from-[#0c0c16] via-[#0c0c16]/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-70 pointer-events-none';
+    imgWrap.appendChild(gradientOverlay);
 
-    // Mobile-friendly click indicator (Inside image overlay)
-    const clickIndicator = document.createElement('div');
-    clickIndicator.className = 'absolute bottom-3 end-3 bg-black/60 backdrop-blur-md border border-white/10 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-xl transition-transform group-hover/browser:scale-105 z-20';
-    clickIndicator.innerHTML = `<svg class="w-3.5 h-3.5 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>`;
-    imgWrap.appendChild(clickIndicator);
+    // Floating Type Badge (Top-End) overlaying the image
+    const typeBadgeWrap = document.createElement('div');
+    typeBadgeWrap.className = 'absolute top-4 end-4 z-10 max-w-[80%]'; // protects from too long texts
+    typeBadgeWrap.innerHTML = `
+      <div class="bg-[#050508]/80 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full flex items-center shadow-lg">
+         <span class="text-[9px] md:text-[10px] font-mono font-semibold text-indigo-300 uppercase tracking-widest truncate">${project.type}</span>
+      </div>
+    `;
+    imgWrap.appendChild(typeBadgeWrap);
 
-    // Hover "View Details" hint
-    const hoverHint = document.createElement('div');
-    hoverHint.className = 'absolute inset-0 flex items-center justify-center opacity-0 group-hover/browser:opacity-100 transition-opacity duration-300 bg-[#0f0f18]/40 backdrop-blur-[2px] z-20 pointer-events-none';
-    hoverHint.innerHTML = `<span class="bg-indigo-600 border border-indigo-500/50 text-white text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-lg shadow-xl shadow-indigo-900/50 flex items-center gap-2 transform translate-y-3 group-hover/browser:translate-y-0 transition-transform duration-300 ease-out"><span>${getVal(lang, 'ui.view_details')}</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></span>`;
-    imgWrap.appendChild(hoverHint);
+    // Hover Action Button Center Overlay
+    const actionOverlay = document.createElement('div');
+    actionOverlay.className = 'absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 bg-black/20 backdrop-blur-[2px] pointer-events-none';
+    actionOverlay.innerHTML = `
+      <div class="bg-indigo-600 text-white flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out shadow-xl shadow-indigo-900/50">
+         <span>${getVal(lang, 'ui.view_details') || 'View Details'}</span>
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </div>
+    `;
+    imgWrap.appendChild(actionOverlay);
 
-    contentBody.appendChild(imgWrap);
+    wrap.appendChild(imgWrap);
 
-    // Project Details Row (Bottom part of the window)
-    const detailsWrap = document.createElement('div');
-    detailsWrap.className = 'p-4 md:p-5 flex-1 flex flex-col justify-center';
+    // ==========================================
+    // 2. CONTENT SECTION (Bottom Half)
+    // ==========================================
+    const contentWrap = document.createElement('div');
+    contentWrap.className = 'relative flex flex-col p-5 md:p-6 z-10 min-w-0';
 
     const titleRow = document.createElement('div');
-    titleRow.className = 'flex items-center justify-between gap-3 relative z-10 w-full';
+    titleRow.className = 'flex items-center justify-between gap-4 w-full min-w-0';
 
-    const nameEl = document.createElement('h3');
-    nameEl.className = 'text-lg font-bold text-[#e2e8f0] tracking-tight font-sans truncate';
-    nameEl.textContent = project.name;
+    // Title
+    const titleEl = document.createElement('h3');
+    titleEl.className = 'text-xl md:text-2xl font-bold text-white tracking-tight truncate flex-1 min-w-0 group-hover:text-indigo-400 transition-colors duration-300';
+    titleEl.textContent = project.name;
+    titleRow.appendChild(titleEl);
 
-    const rightSide = document.createElement('div');
-    rightSide.className = 'flex items-center gap-2 shrink-0';
-
+    // Live Status
     if (project.status === 'live') {
-        const statusDot = document.createElement('span');
-        statusDot.className = 'project-status-dot';
-        rightSide.appendChild(statusDot);
+        const statusWrap = document.createElement('div');
+        statusWrap.className = 'flex items-center gap-1.5 shrink-0 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md';
+        statusWrap.innerHTML = `
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="text-[9px] uppercase tracking-widest font-bold text-emerald-400/90 relative top-[1px]">${getVal(lang, 'ui.status_live') || 'LIVE'}</span>
+        `;
+        titleRow.appendChild(statusWrap);
     }
+    
+    contentWrap.appendChild(titleRow);
 
-    const typeBadge = document.createElement('span');
-    typeBadge.className = 'text-[9px] md:text-[10px] font-mono font-semibold text-indigo-400/80 uppercase tracking-widest bg-indigo-400/[0.06] px-2 py-0.5 rounded border border-indigo-400/10';
-    typeBadge.textContent = project.type;
-    rightSide.appendChild(typeBadge);
+    // URL / Domain Row
+    const linkRow = document.createElement('div');
+    linkRow.className = 'flex items-center mt-3 text-[#64748b] min-w-0 w-full hover:text-[#94a3b8] transition-colors duration-300';
+    linkRow.innerHTML = `
+      <svg class="w-4 h-4 me-2 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+      <span class="text-sm font-mono tracking-wide truncate w-full">${displayDomain}</span>
+    `;
 
-    titleRow.appendChild(nameEl);
-    titleRow.appendChild(rightSide);
+    contentWrap.appendChild(linkRow);
 
-    detailsWrap.appendChild(titleRow);
-    contentBody.appendChild(detailsWrap);
+    wrap.appendChild(contentWrap);
 
-    inner.appendChild(contentBody);
+    // Top-End shimmering spot effect (Luxury lighting touch)
+    const shine = document.createElement('div');
+    shine.className = 'absolute -top-24 -end-24 w-48 h-48 bg-indigo-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none';
+    wrap.appendChild(shine);
 
-    wrap.appendChild(inner);
     return wrap;
 }
 
