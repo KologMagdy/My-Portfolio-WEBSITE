@@ -477,12 +477,25 @@ function render(lang) {
     if (profileEmailLabel) profileEmailLabel.textContent = getVal(lang, 'ui.email_label');
 
     // --- Code Window values ---
-    const cwName = document.getElementById('cw-name');
-    if (cwName) cwName.textContent = `"${getVal(lang, 'ui.code_window_name')}"`;
-    const cwRole = document.getElementById('cw-role');
-    if (cwRole) cwRole.textContent = `"${getVal(lang, 'ui.code_window_role')}"`;
-    const cwFocus = document.getElementById('cw-focus');
-    if (cwFocus) cwFocus.textContent = `"${getVal(lang, 'ui.code_window_focus')}"`;
+    const cwName = document.getElementById('hero-code-name');
+    if (cwName) cwName.textContent = getVal(lang, 'ui.code_window_name');
+    
+    const cwRole = document.getElementById('hero-code-role');
+    if (cwRole) cwRole.textContent = getVal(lang, 'ui.code_window_role');
+    
+    const cwFocus = document.getElementById('hero-code-focus');
+    if (cwFocus) cwFocus.textContent = getVal(lang, 'ui.code_window_focus');
+
+    const stackArr = getVal(lang, 'ui.code_window_stack', []);
+    if (Array.isArray(stackArr)) {
+        stackArr.forEach((tech, index) => {
+            const stackEl = document.getElementById(`hero-code-stack-${index + 1}`);
+            if (stackEl) stackEl.textContent = tech;
+        });
+    }
+
+    const cwAvailable = document.getElementById('hero-code-available');
+    if (cwAvailable) cwAvailable.textContent = getVal(lang, 'ui.code_window_available');
 
 
 

@@ -44,9 +44,11 @@
       "no_preview": "لا توجد معاينة",
       "email_label": "البريد",
       "footer_watermark": "KOLOG.M.M.Z",
-      "code_window_name": "Kolog Magdy",
-      "code_window_role": "Full-Stack Engineer",
-      "code_window_focus": "Scalable Systems"
+      "code_window_name": "كلوج مجدي",
+      "code_window_role": "مهندس برمجيات شامل",
+      "code_window_focus": "الأنظمة القابلة للتوسع",
+      "code_window_stack": ["PHP", "Next.js", "React", "MySQL"],
+      "code_window_available": "true"
     },
     "skills": {
       "categories": {
@@ -157,7 +159,9 @@
       "footer_watermark": "KOLOG.M.M.Z",
       "code_window_name": "Kolog Magdy",
       "code_window_role": "Full-Stack Engineer",
-      "code_window_focus": "Scalable Systems"
+      "code_window_focus": "Scalable Systems",
+      "code_window_stack": ["PHP", "Next.js", "React", "MySQL"],
+      "code_window_available": "true"
     },
     "skills": {
       "categories": {
