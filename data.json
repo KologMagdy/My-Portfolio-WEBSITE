@@ -50,25 +50,37 @@
     },
     "skills": {
       "categories": {
-        "core": "Core",
-        "frontend": "Frontend",
-        "delivery_tools": "Delivery Tools"
+        "languages": "Languages",
+        "frameworks": "Frameworks",
+        "backend_db": "Backend & DBs",
+        "architecture": "Architecture & Tools"
       },
-      "core": [
+      "languages": [
+        "JavaScript / TypeScript",
         "PHP",
-        "MySQL",
         "C++",
-        "JavaScript",
-        "OOP"
+        "HTML / CSS",
+        "SQL"
       ],
-      "frontend": [
-        "HTML",
-        "Tailwind CSS"
-      ],
-      "delivery_tools": [
-        "React",
+      "frameworks": [
         "Next.js",
-        "Astro"
+        "React",
+        "Astro",
+        "Tailwind CSS",
+        "Bootstrap"
+      ],
+      "backend_db": [
+        "MySQL / PostgreSQL",
+        "Supabase",
+        "Sanity (Headless CMS)",
+        "Firebase"
+      ],
+      "architecture": [
+        "RESTful APIs",
+        "OOP",
+        "Git & GitHub",
+        "Vercel (Edge Deployment)",
+        "Postman"
       ]
     },
     "projects_title": "أبرز المشاريع",
@@ -149,25 +161,38 @@
     },
     "skills": {
       "categories": {
-        "core": "Core",
-        "frontend": "Frontend",
-        "delivery_tools": "Delivery Tools"
+        "languages": "Languages",
+        "frameworks": "Frameworks",
+        "backend_db": "Backend & DBs",
+        "architecture": "Architecture & Tools"
       },
-      "core": [
+      "languages": [
+        "JavaScript / TypeScript",
         "PHP",
-        "MySQL",
         "C++",
-        "JavaScript",
-        "OOP"
+        "HTML / CSS",
+        "SQL"
       ],
-      "frontend": [
-        "HTML",
-        "Tailwind CSS"
-      ],
-      "delivery_tools": [
-        "React",
+      "frameworks": [
         "Next.js",
-        "Astro"
+        "React",
+        "Astro",
+        "Tailwind CSS",
+        "Bootstrap"
+      ],
+      "backend_db": [
+        "MySQL / PostgreSQL",
+        "Supabase",
+        "Sanity (Headless CMS)",
+        "Firebase"
+      ],
+      "architecture": [
+        "RESTful APIs",
+        "OOP",
+        "Git & GitHub",
+        "Vercel (Edge Deployment)",
+        "Cloudflare (CDN & WAF)",
+        "Postman"
       ]
     },
     "projects_title": "Featured Projects",
