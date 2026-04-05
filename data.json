@@ -1,0 +1,229 @@
+{
+  "ar": {
+    "personal_info": {
+      "name": "كلوج مجدي",
+      "title": "Software Engineer | Full-Stack Developer",
+      "tagline": "أركز على بناء أنظمة قابلة للتوسع وتسليم حلول برمجية تجارية قوية في الموعد.",
+      "avatar": "avatar.webp",
+      "links": {
+        "github": "https://github.com/KologMagdy",
+        "linkedin": "https://www.linkedin.com/in/kolog-magdy/",
+        "twitter": "#",
+        "instagram": "https://www.instagram.com/kologmagdy",
+        "facebook": "https://www.facebook.com/kolog.magdy",
+        "email": "mailto:kologmagdy@gmail.com"
+      }
+    },
+    "ui": {
+      "marquee": "متاح للعمل الحر • Full-Stack Engineer • System Architect • ",
+      "hero_status": "متاح للتوظيف",
+      "hero_projects_btn": "شاهد أعمالي",
+      "hero_contact_btn": "تواصل معي",
+      "card_projects_btn": "أعمالي",
+      "card_contact_btn": "تواصل معي",
+      "skills_title": "المهارات",
+      "footer_title": "تواصل",
+      "footer_copyright": "© 2026 كلوج مجدي",
+      "visit_project": "زيارة المشروع",
+      "projects_subtitle": "مشاريع تجارية حقيقية تم شحنها وتسليمها للعملاء",
+      "project_role_label": "الدور",
+      "project_highlights_label": "أبرز النقاط",
+      "view_source": "الكود المصدري",
+      "contact_subtitle": "دعنا نبني شيئاً",
+      "contact_text": "تبحث عن مطور لمساعدتك في تحويل أفكارك إلى حقيقة أو توسيع نظامك الحالي؟ أنا متاح للعمل الحر ومستعد دائماً لفرص وتحديات جديدة.",
+      "social_title": "تواصل عبر منصات أخرى",
+      "nav_view_profile": "عرض الملف الشخصي",
+      "nav_view_id": "بطاقة التعريف",
+      "nav_brand_handle": "kolog_magdy",
+      "contact_section_label": "تواصل",
+      "primary_link_label": "الرابط الرئيسي",
+      "contact_subtitle_accent": "مذهلاً.",
+      "tech_stack_label": "Tech Stack",
+      "project_details_label": "تفاصيل المشروع",
+      "view_details": "عرض التفاصيل",
+      "no_preview": "لا توجد معاينة",
+      "email_label": "البريد",
+      "footer_watermark": "KOLOG.M.M.Z",
+      "code_window_name": "كلوج مجدي",
+      "code_window_role": "مهندس برمجيات شامل",
+      "code_window_focus": "الأنظمة القابلة للتوسع",
+      "code_window_stack": ["PHP", "Next.js", "React", "MySQL"],
+      "code_window_available": "true"
+    },
+    "skills": {
+      "categories": {
+        "languages": "Languages",
+        "frameworks": "Frameworks",
+        "backend_db": "Backend & DBs",
+        "architecture": "Architecture & Tools"
+      },
+      "languages": [
+        "JavaScript / TypeScript",
+        "PHP",
+        "C++",
+        "HTML / CSS",
+        "SQL"
+      ],
+      "frameworks": [
+        "Next.js",
+        "React",
+        "Astro",
+        "Tailwind CSS",
+        "Bootstrap"
+      ],
+      "backend_db": [
+        "MySQL / PostgreSQL",
+        "Supabase",
+        "Sanity (Headless CMS)",
+        "Firebase"
+      ],
+      "architecture": [
+        "RESTful APIs",
+        "OOP",
+        "Git & GitHub",
+        "Vercel (Edge Deployment)",
+        "Postman"
+      ]
+    },
+    "projects_title": "أبرز المشاريع",
+    "projects": [
+      {
+        "name": "طاجن (Tagen Foods)",
+        "type": "B2B Export Catalog & Lead Generation Portal",
+        "description": "منصة ويب B2B مخصصة لسوق التصدير العالمي. تعمل ككتالوج رقمي ديناميكي لمصنع أطعمة مجمدة لاستعراض القدرات الإنتاجية للمستوردين الأجانب، مع نظام مخصص لتوليد العملاء المحتملين (Lead Generation) وطلب عروض الأسعار بدلاً من الشراء المباشر.",
+        "role": "System Architect & Full-Stack Engineer",
+        "year": "2025",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "tagen-foods-preview.webp",
+        "highlights": [
+          "بناء كتالوج رقمي فائق السرعة موجه لخدمة المستوردين الأجانب",
+          "تصميم مسار مستخدم (User Journey) يركز بالكامل على الـ Lead Generation",
+          "ربط المنتجات بـ Sanity CMS لإدارة المحتوى المؤسسي بكفاءة"
+        ],
+        "tech_stack": [
+          "Next.js (SSG)",
+          "Tailwind CSS",
+          "Sanity (Headless CMS)"
+        ],
+        "icon": "globe",
+        "link": "https://tagenfoods.com",
+        "source": "https://github.com/KologMagdy/TagenFoods-B2B-Architecture"
+      }
+    ]
+  },
+  "en": {
+    "personal_info": {
+      "name": "Kolog Magdy",
+      "title": "Software Engineer | Full-Stack Developer",
+      "tagline": "Focused on building scalable systems and delivering robust commercial solutions on time.",
+      "avatar": "avatar.webp",
+      "links": {
+        "github": "https://github.com/KologMagdy",
+        "linkedin": "https://www.linkedin.com/in/kolog-magdy/",
+        "twitter": "#",
+        "instagram": "https://www.instagram.com/kologmagdy",
+        "facebook": "https://www.facebook.com/kolog.magdy",
+        "email": "mailto:kologmagdy@gmail.com"
+      }
+    },
+    "ui": {
+      "marquee": "AVAILABLE FOR FREELANCE • FULL STACK ENGINEER • SYSTEM ARCHITECT • ",
+      "hero_status": "Available for hire",
+      "hero_projects_btn": "View My Work",
+      "hero_contact_btn": "Contact Me",
+      "card_projects_btn": "My Work",
+      "card_contact_btn": "Contact Me",
+      "skills_title": "Skills",
+      "footer_title": "Contact",
+      "footer_copyright": "© 2026 Kolog Magdy",
+      "visit_project": "Live Preview",
+      "projects_subtitle": "Real commercial projects shipped and delivered to clients",
+      "project_role_label": "Role",
+      "project_highlights_label": "Highlights",
+      "view_source": "Source Code",
+      "contact_subtitle": "Let's Build Something",
+      "contact_text": "Looking for a developer to help bring your ideas to life or scale your existing systems? I'm available for freelance work and always open to new opportunities.",
+      "social_title": "Connect Elsewhere",
+      "nav_view_profile": "View Profile",
+      "nav_view_id": "View ID",
+      "nav_brand_handle": "kolog_magdy",
+      "contact_section_label": "Contact",
+      "primary_link_label": "Primary Link",
+      "contact_subtitle_accent": "Amazing.",
+      "tech_stack_label": "Tech Stack",
+      "project_details_label": "Project Details",
+      "view_details": "View Details",
+      "no_preview": "No Preview Available",
+      "email_label": "Email",
+      "footer_watermark": "KOLOG.M.M.Z",
+      "code_window_name": "Kolog Magdy",
+      "code_window_role": "Full-Stack Engineer",
+      "code_window_focus": "Scalable Systems",
+      "code_window_stack": ["PHP", "Next.js", "React", "MySQL"],
+      "code_window_available": "true"
+    },
+    "skills": {
+      "categories": {
+        "languages": "Languages",
+        "frameworks": "Frameworks",
+        "backend_db": "Backend & DBs",
+        "architecture": "Architecture & Tools"
+      },
+      "languages": [
+        "JavaScript / TypeScript",
+        "PHP",
+        "C++",
+        "HTML / CSS",
+        "SQL"
+      ],
+      "frameworks": [
+        "Next.js",
+        "React",
+        "Astro",
+        "Tailwind CSS",
+        "Bootstrap"
+      ],
+      "backend_db": [
+        "MySQL / PostgreSQL",
+        "Supabase",
+        "Sanity (Headless CMS)",
+        "Firebase"
+      ],
+      "architecture": [
+        "RESTful APIs",
+        "OOP",
+        "Git & GitHub",
+        "Vercel (Edge Deployment)",
+        "Cloudflare (CDN & WAF)",
+        "Postman"
+      ]
+    },
+    "projects_title": "Featured Projects",
+    "projects": [
+      {
+        "name": "Tagen Foods",
+        "type": "B2B Export Catalog & Lead Generation Portal",
+        "description": "A B2B web platform built for the global export market. Serves as a dynamic digital catalog for a frozen food manufacturer to showcase production capabilities to foreign importers, featuring a custom lead generation and quote request system instead of direct purchase.",
+        "role": "System Architect & Full-Stack Engineer",
+        "year": "2025",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "tagen-foods-preview.webp",
+        "highlights": [
+          "Built a high-performance digital catalog serving foreign importers",
+          "Designed a user journey focused entirely on Lead Generation",
+          "Integrated products with Sanity CMS for efficient enterprise content management"
+        ],
+        "tech_stack": [
+          "Next.js (SSG)",
+          "Tailwind CSS",
+          "Sanity (Headless CMS)"
+        ],
+        "icon": "globe",
+        "link": "https://tagenfoods.com",
+        "source": "https://github.com/KologMagdy/TagenFoods-B2B-Architecture"
+      }
+    ]
+  }
+}

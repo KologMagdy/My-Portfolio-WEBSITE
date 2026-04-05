@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">كلوج مجدي | Software Engineer</title>
+  <meta id="meta-description" name="description"
+    content="مهندس برمجيات متخصص في بناء أنظمة قابلة للتوسع وتسليم حلول تجارية قوية.">
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/webp" href="avatar.webp">
+  <link rel="apple-touch-icon" href="avatar.webp">
+
+  <!-- Theme Color (matches dark background) -->
+  <meta name="theme-color" content="#0a0a0f">
+
+  <!-- Canonical URL -->
+  <link id="canonical-url" rel="canonical" href="https://kologmagdy.com/">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta id="og-title" property="og:title" content="Kolog Magdy — Software Engineer">
+  <meta id="og-description" property="og:description"
+    content="Software Engineer focused on building scalable systems and delivering robust commercial solutions.">
+  <meta id="og-image" property="og:image" content="https://kolog.dev/og-image.jpg">
+  <meta id="og-url" property="og:url" content="https://kolog.dev/">
+  <meta id="og-locale" property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta id="twitter-title" name="twitter:title" content="Kolog Magdy — Software Engineer">
+  <meta id="twitter-description" name="twitter:description"
+    content="Software Engineer focused on building scalable systems and delivering robust commercial solutions.">
+  <meta id="twitter-image" name="twitter:image" content="https://kolog.dev/og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-main': 'rgb(var(--bg-main) / <alpha-value>)',
+            'bg-card': 'rgb(var(--bg-card) / <alpha-value>)',
+            'bg-window-title': 'rgb(var(--bg-window-title) / <alpha-value>)',
+            'bg-pill': 'rgb(var(--bg-pill) / <alpha-value>)',
+            'bg-pill-hover': 'rgb(var(--bg-pill-hover) / <alpha-value>)',
+            'bg-board': 'rgb(var(--bg-board) / <alpha-value>)',
+            'bg-footer': 'rgb(var(--bg-footer) / <alpha-value>)',
+            'bg-modal': 'rgb(var(--bg-modal) / <alpha-value>)',
+            'bg-preview-skeleton': 'rgb(var(--bg-preview-skeleton) / <alpha-value>)',
+            'bg-social-icon': 'rgb(var(--bg-social-icon) / <alpha-value>)',
+            'grad-card-start': 'rgb(var(--grad-card-start) / <alpha-value>)',
+            'grad-card-end': 'rgb(var(--grad-card-end) / <alpha-value>)',
+            'grad-card-hover': 'rgb(var(--grad-card-hover) / <alpha-value>)',
+            'text-heading': 'rgb(var(--text-heading) / <alpha-value>)',
+            'text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
+            'text-main': 'rgb(var(--text-main) / <alpha-value>)',
+            'text-contact-desc': 'rgb(var(--text-contact-desc) / <alpha-value>)',
+            'text-muted': 'rgb(var(--text-muted) / <alpha-value>)',
+            'text-label': 'rgb(var(--text-label) / <alpha-value>)',
+            'text-line-numbers': 'rgb(var(--text-line-numbers) / <alpha-value>)',
+            'syntax-key': 'rgb(var(--syntax-key) / <alpha-value>)',
+            'syntax-string': 'rgb(var(--syntax-string) / <alpha-value>)',
+            'syntax-boolean': 'rgb(var(--syntax-boolean) / <alpha-value>)',
+            'syntax-number': 'rgb(var(--syntax-number) / <alpha-value>)',
+            'border-main': 'rgb(var(--border-main) / <alpha-value>)',
+            'scrollbar-thumb-hover': 'rgb(var(--scrollbar-thumb-hover) / <alpha-value>)',
+            'mac-close': 'rgb(var(--mac-close) / <alpha-value>)',
+            'mac-min': 'rgb(var(--mac-min) / <alpha-value>)',
+            'mac-max': 'rgb(var(--mac-max) / <alpha-value>)',
+            'brand-linkedin': 'rgb(var(--brand-linkedin) / <alpha-value>)',
+            'accent-indigo': 'rgb(var(--accent-indigo) / <alpha-value>)',
+            'accent-indigo-light': 'rgb(var(--accent-indigo-light) / <alpha-value>)',
+            'accent-indigo-lighter': 'rgb(var(--accent-indigo-lighter) / <alpha-value>)',
+            'accent-indigo-lightest': 'rgb(var(--accent-indigo-lightest) / <alpha-value>)',
+            'accent-purple': 'rgb(var(--accent-purple) / <alpha-value>)',
+            'accent-violet': 'rgb(var(--accent-violet) / <alpha-value>)',
+            'accent-violet-light': 'rgb(var(--accent-violet-light) / <alpha-value>)',
+            'accent-fuchsia': 'rgb(var(--accent-fuchsia) / <alpha-value>)',
+            'accent-emerald-400': 'rgb(var(--accent-emerald-400) / <alpha-value>)',
+            'accent-emerald-500': 'rgb(var(--accent-emerald-500) / <alpha-value>)',
+            'pure-black': 'rgb(var(--pure-black) / <alpha-value>)',
+            'pure-white': 'rgb(var(--pure-white) / <alpha-value>)',
+          },
+          fontFamily: {
+            sans: ['Inter', 'IBM Plex Sans Arabic', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-bg-main text-text-main font-sans selection:bg-indigo-500/30 selection:text-white">
+
+  <noscript>
+    <div class="fixed inset-0 z-[1000] flex items-center justify-center bg-bg-main p-6 text-center">
+      <div class="max-w-md p-8 rounded-2xl border border-red-500/20 bg-red-500/5 backdrop-blur-xl">
+        <h1 class="text-2xl font-bold text-white mb-4">JavaScript Required</h1>
+        <p class="text-text-main mb-6">This portfolio requires JavaScript to render content dynamically from data.json.
+          Please enable it to view my work.</p>
+        <div class="h-px bg-white/10 my-6"></div>
+        <h1 class="text-2xl font-bold text-white mb-4">تفعيل جافا سكريبت مطلوب</h1>
+        <p class="text-text-main">هذا الموقع يحتاج إلى تفعيل جافا سكريبت لعرض المحتوى. يرجى تفعيله لمشاهدة أعمالي.</p>
+      </div>
+    </div>
+  </noscript>
+
+
+  <!-- ═══ HEADER: Sticky Glassmorphic Navbar ═══ -->
+  <div class="nav-container sticky top-0 z-50">
+    <nav id="main-nav" class="nav-glass border-b border-white/[0.06] transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 md:h-[4.5rem]">
+
+          <!-- Interactive Profile / Brand Logo -->
+          <button id="avatar-btn"
+            class="flex items-center gap-3 sm:gap-3.5 group p-1.5 -ms-1.5 rounded-xl hover:bg-white/[0.04] active:scale-95 transition-all duration-300 cursor-pointer border border-transparent hover:border-white/[0.06]">
+
+            <!-- App-Icon style Avatar -->
+            <div
+              class="relative w-10 h-10 rounded-[10px] p-[2px] bg-gradient-to-br from-indigo-500/60 to-purple-500/60 group-hover:from-indigo-400 group-hover:to-purple-400 shadow-lg shadow-indigo-500/20 overflow-hidden transition-all duration-300 group-hover:shadow-indigo-500/40">
+              <img src="avatar.webp" alt="Kolog Magdy"
+                class="w-full h-full rounded-[8px] object-cover object-top relative z-10 transition-transform duration-500 group-hover:scale-110">
+              <!-- Animated Tech Overlay -->
+              <div
+                class="absolute inset-0 bg-indigo-500/20 opacity-0 group-hover:opacity-100 mix-blend-color-burn transition-opacity z-20">
+              </div>
+            </div>
+
+            <!-- Desktop: Terminal Command Name -->
+            <div
+              class="hidden sm:flex flex-col items-start transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
+              <span class="text-text-heading font-mono font-semibold text-sm tracking-tight flex items-center gap-1"
+                dir="ltr">
+                <span class="text-indigo-400">./</span><span id="nav-brand-handle">kolog_magdy</span><span
+                  class="text-indigo-400 animate-pulse">_</span>
+              </span>
+              <span
+                class="flex items-center gap-1.5 text-[10px] text-text-muted font-mono uppercase tracking-widest mt-0.5 group-hover:text-emerald-400 transition-colors">
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-emerald-500 opacity-50 group-hover:opacity-100 group-hover:animate-ping"></span>
+                <span id="nav-view-profile" class="block mt-[1px]">View Profile</span>
+              </span>
+            </div>
+
+            <!-- Mobile: Explicit Tag -->
+            <div class="flex sm:hidden items-center justify-center">
+              <span id="nav-view-id"
+                class="bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 text-[9px] font-mono uppercase tracking-widest px-2 py-1 rounded-md group-hover:bg-indigo-500 group-hover:text-white transition-colors">
+                View ID
+              </span>
+            </div>
+          </button>
+
+          <!-- Desktop Navigation Links -->
+          <div class="hidden md:flex items-center gap-1">
+            <a href="#hero" data-nav="hero"
+              class="nav-link-indicator px-4 py-2 text-sm font-medium text-text-main hover:text-text-heading transition-colors duration-200 rounded-lg hover:bg-white/[0.04]">
+              <span data-nav-text="about">About</span>
+            </a>
+            <a href="#skills" data-nav="skills"
+              class="nav-link-indicator px-4 py-2 text-sm font-medium text-text-main hover:text-text-heading transition-colors duration-200 rounded-lg hover:bg-white/[0.04]">
+              <span data-nav-text="skills">Skills</span>
+            </a>
+            <a href="#projects" data-nav="projects"
+              class="nav-link-indicator px-4 py-2 text-sm font-medium text-text-main hover:text-text-heading transition-colors duration-200 rounded-lg hover:bg-white/[0.04]">
+              <span data-nav-text="projects">Projects</span>
+            </a>
+            <a href="#contact" data-nav="contact"
+              class="nav-link-indicator px-4 py-2 text-sm font-medium text-text-main hover:text-text-heading transition-colors duration-200 rounded-lg hover:bg-white/[0.04]">
+              <span data-nav-text="contact">Contact</span>
+            </a>
+          </div>
+
+          <!-- Right Side: Lang Toggle + Mobile Menu Button -->
+          <div class="flex items-center gap-3">
+            <!-- Language Toggle -->
+            <button id="lang-toggle"
+              class="group relative flex items-center gap-2 px-3.5 py-1.5 text-xs font-mono font-medium text-text-main border border-white/[0.08] rounded-full hover:border-indigo-400/30 hover:text-indigo-300 hover:bg-indigo-400/[0.06] transition-all duration-300 cursor-pointer">
+              <svg class="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+              <span>EN</span>
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn"
+              class="hamburger md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-[5px] rounded-lg hover:bg-white/[0.06] transition-colors cursor-pointer"
+              aria-label="Toggle navigation menu">
+              <span class="hamburger-line w-5 h-[1.5px] bg-text-main rounded-full block"></span>
+              <span class="hamburger-line w-5 h-[1.5px] bg-text-main rounded-full block"></span>
+              <span class="hamburger-line w-5 h-[1.5px] bg-text-main rounded-full block"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Drawer (slides down from nav) -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay fixed inset-0 top-0 bg-black/60 z-40 md:hidden"></div>
+    <div id="mobile-menu-drawer" class="mobile-menu-drawer fixed top-0 inset-x-0 z-50 md:hidden">
+      <div class="bg-bg-card border-b border-white/[0.06] shadow-2xl shadow-black/50">
+        <!-- Drawer Header (mirrors nav height) -->
+        <div class="flex items-center justify-between h-16 px-4 sm:px-6">
+          <a href="#hero" class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full p-[2px] bg-gradient-to-br from-indigo-500 to-purple-500">
+              <img src="avatar.webp" alt="Kolog Magdy" class="w-full h-full rounded-full object-cover object-top">
+            </div>
+          </a>
+          <button id="mobile-menu-close"
+            class="hamburger open w-10 h-10 flex flex-col items-center justify-center gap-[5px] rounded-lg hover:bg-white/[0.06] transition-colors cursor-pointer"
+            aria-label="Close menu">
+            <span class="hamburger-line w-5 h-[1.5px] bg-text-main rounded-full block"></span>
+            <span class="hamburger-line w-5 h-[1.5px] bg-text-main rounded-full block"></span>
+            <span class="hamburger-line w-5 h-[1.5px] bg-text-main rounded-full block"></span>
+          </button>
+        </div>
+        <!-- Drawer Links -->
+        <div class="px-4 sm:px-6 pb-8 pt-2 flex flex-col gap-1">
+          <a href="#hero"
+            class="mobile-nav-link text-text-secondary hover:text-white hover:bg-white/[0.04] px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-200 flex items-center gap-3">
+            <svg class="w-4 h-4 text-indigo-400 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <span data-mobile-nav-text="about">About</span>
+          </a>
+          <a href="#skills"
+            class="mobile-nav-link text-text-secondary hover:text-white hover:bg-white/[0.04] px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-200 flex items-center gap-3">
+            <svg class="w-4 h-4 text-indigo-400 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            <span data-mobile-nav-text="skills">Skills</span>
+          </a>
+          <a href="#projects"
+            class="mobile-nav-link text-text-secondary hover:text-white hover:bg-white/[0.04] px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-200 flex items-center gap-3">
+            <svg class="w-4 h-4 text-indigo-400 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+            </svg>
+            <span data-mobile-nav-text="projects">Projects</span>
+          </a>
+          <a href="#contact"
+            class="mobile-nav-link text-text-secondary hover:text-white hover:bg-white/[0.04] px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-200 flex items-center gap-3">
+            <svg class="w-4 h-4 text-indigo-400 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span data-mobile-nav-text="contact">Contact</span>
+          </a>
+
+          <!-- Divider -->
+          <div class="h-px bg-white/[0.06] my-3"></div>
+
+          <!-- Social Links in Mobile -->
+          <div class="flex items-center gap-4 px-4 pt-2">
+            <a id="mobile-github" href="#" class="text-text-muted hover:text-indigo-400 transition-colors"
+              aria-label="GitHub">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
+              </svg>
+            </a>
+            <a id="mobile-linkedin" href="#" class="text-text-muted hover:text-indigo-400 transition-colors"
+              aria-label="LinkedIn">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22.225 0H1.77C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.77 24h20.451C23.203 24 24 23.227 24 22.271V1.729C24 .774 23.203 0 22.222 0h.003zM7.12 20.452H3.558V9H7.12v11.452zM5.34 7.434a2.064 2.064 0 110-4.125 2.063 2.063 0 010 4.125zm15.112 13.018h-3.558v-5.57c0-1.326-.024-3.037-1.852-3.037-1.851 0-2.133 1.448-2.133 2.939v5.668H9.356V9h3.414v1.566h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.281z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Hero Section ═══ -->
+  <header id="hero"
+    class="min-h-screen flex items-center relative overflow-hidden border-b border-white/[0.04] scroll-mt-20">
+
+    <!-- Background Layer: Grid + Ambient Glow -->
+    <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+    <div
+      class="absolute top-1/4 -start-20 w-[500px] h-[500px] bg-indigo-500/[0.06] rounded-full blur-[120px] pointer-events-none">
+    </div>
+    <div
+      class="absolute bottom-1/3 -end-20 w-[400px] h-[400px] bg-purple-500/[0.04] rounded-full blur-[100px] pointer-events-none">
+    </div>
+
+    <div
+      class="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center gap-8 lg:gap-16 relative z-10 py-16 lg:py-0">
+
+      <!-- LEFT: Identity -->
+      <div class="flex-1 w-full">
+
+        <!-- Status Indicator -->
+        <div class="flex items-center gap-3 mb-10">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+          </span>
+          <span id="hero-status" class="text-emerald-400 font-mono text-xs tracking-[0.2em] uppercase">Available for
+            hire</span>
+        </div>
+
+        <!-- Name -->
+        <h1 id="hero-name"
+          class="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-[5.5rem] font-black tracking-tighter leading-none pb-[0.25em] mb-4 hero-gradient-text break-words">
+          Kolog Magdy
+        </h1>
+
+        <!-- Title -->
+        <p class="mb-8">
+          <span id="hero-title"
+            class="text-xl md:text-2xl lg:text-3xl font-semibold text-indigo-400 font-mono tracking-tight" dir="ltr">
+            Software Engineer | Full-Stack Developer
+          </span>
+        </p>
+
+        <!-- Tagline -->
+        <p id="hero-tagline"
+          class="text-base md:text-lg lg:text-xl text-text-muted max-w-xl leading-relaxed mb-12 font-sans break-words line-clamp-3 md:line-clamp-none">
+          Focused on building scalable systems and delivering robust commercial solutions on time.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 font-sans w-full md:w-auto">
+          <a id="hero-projects-btn" href="#projects"
+            class="group bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 sm:py-3.5 rounded-xl font-semibold shadow-lg shadow-indigo-600/25 hover:shadow-xl hover:shadow-indigo-500/35 hover:scale-[1.02] flex justify-center items-center gap-2.5 transition-all duration-300 text-base w-full sm:w-auto">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            <span class="whitespace-nowrap">View My Work</span>
+          </a>
+          <a id="hero-email" href="#contact"
+            class="bg-white/[0.04] hover:bg-white/[0.08] text-text-heading border border-white/[0.08] hover:border-white/[0.15] px-8 py-4 sm:py-3.5 rounded-xl font-semibold hover:scale-[1.02] transition-all duration-300 text-base flex justify-center items-center gap-2.5 w-full sm:w-auto">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span class="whitespace-nowrap">Contact Me</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: 3D Floating Code Window -->
+      <div class="hidden lg:flex flex-col justify-center items-center lg:w-[45%] relative">
+
+        <div class="code-window-float w-full max-w-md">
+          <!-- Gradient border wrapper -->
+          <div class="p-[1px] rounded-2xl bg-gradient-to-br from-indigo-500/40 via-border-main to-purple-500/40">
+            <div class="bg-bg-card rounded-2xl overflow-hidden shadow-2xl shadow-black/50">
+
+              <!-- Window Title Bar -->
+              <div class="flex items-center justify-between px-4 py-3 bg-bg-window-title border-b border-white/[0.06]">
+                <div class="flex gap-2">
+                  <span class="w-3 h-3 rounded-full bg-mac-close"></span>
+                  <span class="w-3 h-3 rounded-full bg-mac-min"></span>
+                  <span class="w-3 h-3 rounded-full bg-mac-max"></span>
+                </div>
+                <span class="text-text-label text-xs font-mono">developer.json</span>
+                <div class="w-14"></div>
+              </div>
+
+              <!-- Syntax-Highlighted Code -->
+              <div class="p-6 font-mono text-sm leading-[1.85]" dir="ltr">
+                <div class="flex">
+                  <!-- Line numbers -->
+                  <div class="text-border-main text-end pe-4 select-none leading-[1.85] w-8">
+                    1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12
+                  </div>
+                  <!-- Code body -->
+                  <div class="text-text-main leading-[1.85]">
+                    <span class="text-text-secondary">{</span><br>
+                    &nbsp;&nbsp;<span class="text-syntax-key">"name"</span>: <span class="text-syntax-string">"<span
+                        id="hero-code-name">Kolog Magdy</span>"</span>,<br>
+                    &nbsp;&nbsp;<span class="text-syntax-key">"role"</span>: <span class="text-syntax-string">"<span
+                        id="hero-code-role">Full-Stack Engineer</span>"</span>,<br>
+                    &nbsp;&nbsp;<span class="text-syntax-key">"focus"</span>: <span class="text-syntax-string">"<span
+                        id="hero-code-focus">Scalable Systems</span>"</span>,<br>
+                    &nbsp;&nbsp;<span class="text-syntax-key">"stack"</span>: [<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-syntax-string">"<span
+                        id="hero-code-stack-1">PHP</span>"</span>, <span class="text-syntax-string">"<span
+                        id="hero-code-stack-2">Next.js</span>"</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-syntax-string">"<span
+                        id="hero-code-stack-3">React</span>"</span>, <span class="text-syntax-string">"<span
+                        id="hero-code-stack-4">MySQL</span>"</span><br>
+                    &nbsp;&nbsp;],<br>
+                    &nbsp;&nbsp;<span class="text-syntax-key">"available"</span>: <span id="hero-code-available"
+                      class="text-syntax-boolean">true</span>,<br>
+                    &nbsp;&nbsp;<span class="text-syntax-key">"coffee"</span>: <span
+                      class="text-syntax-number">Infinity</span><br>
+                    <span class="text-text-secondary">}</span><br>
+                    <span class="text-emerald-400 cursor-blink">█</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-16">
+
+    <!-- Data Loading Error Fallback (Initially Hidden) -->
+    <div id="data-error"
+      class="hidden my-12 p-8 rounded-2xl border border-red-500/20 bg-red-500/5 backdrop-blur-xl text-center">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-500/10 text-red-400 mb-6">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+      </div>
+      <h2 class="text-xl font-bold text-white mb-2">Failed to load portfolio data</h2>
+      <p class="text-text-main mb-8">There was a problem fetching the content. Please try refreshing the page.</p>
+      <div class="h-px bg-white/10 my-8"></div>
+      <h2 class="text-xl font-bold text-white mb-2">فشل في تحميل بيانات الموقع</h2>
+      <p class="text-text-main">حدثت مشكلة أثناء جلب المحتوى. يرجى محاولة تحديث الصفحة.</p>
+      <button onclick="window.location.reload()"
+        class="mt-6 px-6 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-all duration-300 border border-white/10 hover:border-white/20 cursor-pointer">
+        Try Again / أعِد المحاولة
+      </button>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="mb-24 scroll-mt-24">
+      <div class="flex items-center gap-4 mb-8">
+        <h2 id="skills-title" class="text-3xl md:text-3xl font-black text-text-heading font-sans">Skills</h2>
+        <div class="h-[1px] flex-1 bg-gradient-to-r from-border-main to-transparent"></div>
+      </div>
+
+      <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Data populated by JS -->
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="scroll-mt-24 relative">
+
+      <!-- Section ambient background -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10 rounded-[3rem]">
+        <div class="absolute -top-40 -start-40 w-[500px] h-[500px] bg-indigo-500/[0.04] rounded-full blur-[150px]">
+        </div>
+        <div class="absolute -bottom-32 -end-32 w-[400px] h-[400px] bg-purple-500/[0.03] rounded-full blur-[120px]">
+        </div>
+      </div>
+
+      <!-- Section Header -->
+      <div class="flex items-center gap-4 mb-3">
+        <h2 id="projects-title" class="text-3xl md:text-4xl font-black text-text-heading font-sans">Featured Projects
+        </h2>
+        <div class="h-[1px] flex-1 bg-gradient-to-r from-border-main to-transparent"></div>
+      </div>
+      <p id="projects-subtitle" class="text-sm md:text-base text-text-label font-mono mb-12 max-w-xl">Real commercial
+        projects shipped and delivered to clients</p>
+
+      <!-- Unified Projects Grid -->
+      <div id="projects-grid"
+        class="flex overflow-x-auto pb-8 -mx-4 px-4 snap-x snap-mandatory gap-4 custom-scrollbar md:grid md:grid-cols-2 md:gap-8 md:pb-0 md:mx-0 md:px-0 md:overflow-visible">
+        <!-- Data populated by JS -->
+      </div>
+    </section>
+    <!-- Spacer / Divider between Projects and Contact -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 my-20 lg:my-32">
+      <div class="w-full h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent"></div>
+    </div>
+
+    <!-- Contact Section (Refined Neo-Brutalist Minimalism) -->
+    <section id="contact" class="mb-24 scroll-mt-24 relative project-reveal">
+      <!-- Minimalist glow -->
+      <div
+        class="absolute inset-0 overflow-hidden pointer-events-none select-none flex items-center justify-center -z-10">
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-indigo-600/[0.04] rounded-full blur-[120px]">
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto px-4 md:px-0 relative z-10 w-full">
+
+        <!-- Contact Interactive Board -->
+        <div
+          class="rounded-2xl border border-white/[0.06] bg-bg-board overflow-hidden group shadow-[0_20px_80px_-20px_rgba(var(--pure-black),0.8)] relative mt-12 mb-20 lg:mb-32 w-full">
+          <!-- Ambient Board Glow -->
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] to-purple-500/[0.02] pointer-events-none group-hover:from-indigo-500/[0.04] group-hover:to-purple-500/[0.04] transition-colors duration-700">
+          </div>
+
+          <h3 id="contact-title" class="hidden">Contact Me</h3> <!-- For JS mapping so it doesn't error -->
+
+          <div
+            class="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-white/[0.06] rtl:divide-x-reverse relative z-10 w-full">
+
+            <!-- Primary Action & Content -->
+            <div
+              class="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-between items-start text-start relative overflow-hidden">
+              <!-- Subtle Accent Glow -->
+              <div
+                class="absolute -top-32 -start-32 w-96 h-96 bg-indigo-600/[0.05] rounded-full blur-[100px] pointer-events-none group-hover:bg-indigo-600/[0.08] transition-colors duration-1000">
+              </div>
+
+              <div class="w-full relative z-20 mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                  <span
+                    class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+                  <h2 id="contact-section-label"
+                    class="text-[10px] md:text-xs font-mono font-bold text-indigo-400 tracking-[0.2em] uppercase">
+                    Contact</h2>
+                </div>
+                <h3 id="contact-subtitle"
+                  class="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter leading-[1.1] font-sans break-words">
+                  Let's Build Something <span id="contact-subtitle-accent"
+                    class="inline-block pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Amazing.</span>
+                </h3>
+                <p id="contact-text"
+                  class="text-text-contact-desc text-sm md:text-base font-mono mt-6 max-w-md leading-relaxed selection:bg-indigo-500/30 break-words">
+                  Looking for a developer to help bring your ideas to life or scale your existing product? I'm available
+                  for freelance work.
+                </p>
+              </div>
+
+              <!-- Enhanced Email Button -->
+              <a id="contact-email-btn" href="#"
+                class="group/btn relative inline-flex items-center gap-3 md:gap-4 px-4 md:px-8 py-4 md:py-5 bg-indigo-600 text-white rounded-xl shadow-[0_8px_30px_rgb(79,70,229,0.25)] hover:shadow-[0_15px_40px_rgb(79,70,229,0.45)] transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-white/10 hover:border-white/30 w-full sm:w-auto z-20">
+                <!-- Shimmer effect -->
+                <div
+                  class="absolute inset-0 -translate-x-[150%] skew-x-[-30deg] bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover/btn:animate-[shimmer_1s_ease-in-out_forwards]">
+                </div>
+
+                <div
+                  class="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/20 shrink-0 relative z-10 transition-transform duration-500 group-hover/btn:rotate-3 group-hover/btn:scale-110">
+                  <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div class="flex flex-col text-start relative z-10 pt-0.5 min-w-0 flex-1">
+                  <span id="contact-primary-label"
+                    class="text-[9px] md:text-[10px] text-indigo-100/70 font-mono tracking-widest uppercase mb-0.5 font-bold">Primary
+                    Link</span>
+                  <span id="contact-btn-text"
+                    class="text-[clamp(11px,3.5vw,16px)] sm:text-lg md:text-xl font-bold tracking-tight font-sans whitespace-nowrap w-full"></span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Secondary Actions -->
+            <div class="w-full md:w-64 lg:w-80 p-8 md:p-12 flex flex-col justify-center bg-white/[0.01]">
+              <h4 id="social-title"
+                class="text-[10px] font-mono tracking-widest uppercase text-text-muted mb-6 text-start">Network Grid
+              </h4>
+              <div class="flex flex-col gap-3" id="contact-social-grid">
+                <a id="contact-social-github" href="#"
+                  class="flex items-center gap-4 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.06] hover:border-white/20 text-text-main hover:text-white transition-all duration-300 hover:translate-x-1 rtl:hover:-translate-x-1 group/social">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-bg-social-icon flex items-center justify-center border border-white/[0.05] shadow-inner">
+                    <svg class="w-5 h-5 text-indigo-400 group-hover/social:text-white transition-colors"
+                      fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
+                    </svg>
+                  </div>
+                  <span class="text-xs font-mono font-bold tracking-widest uppercase">GitHub</span>
+                </a>
+                <a id="contact-social-linkedin" href="#"
+                  class="flex items-center gap-4 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:bg-brand-linkedin/10 hover:border-brand-linkedin/50 text-text-main hover:text-white transition-all duration-300 hover:translate-x-1 rtl:hover:-translate-x-1 group/social">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-bg-social-icon flex items-center justify-center border border-white/[0.05] shadow-inner group-hover/social:border-brand-linkedin/30">
+                    <svg class="w-5 h-5 text-brand-linkedin group-hover/social:brightness-125 transition-all"
+                      fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M22.225 0H1.77C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.77 24h20.451C23.203 24 24 23.227 24 22.271V1.729C24 .774 23.203 0 22.222 0h.003zM7.12 20.452H3.558V9H7.12v11.452zM5.34 7.434a2.064 2.064 0 110-4.125 2.063 2.063 0 010 4.125zm15.112 13.018h-3.558v-5.57c0-1.326-.024-3.037-1.852-3.037-1.851 0-2.133 1.448-2.133 2.939v5.668H9.356V9h3.414v1.566h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.281z" />
+                    </svg>
+                  </div>
+                  <span class="text-xs font-mono font-bold tracking-widest uppercase">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ Simple Finale Footer ═══ -->
+  <footer id="site-footer" class="relative overflow-hidden bg-bg-footer border-t border-white/[0.05] z-20">
+    <!-- Ambient Void Glow -->
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-600/[0.04] rounded-full blur-[120px] pointer-events-none">
+    </div>
+
+    <div class="w-full relative flex flex-col items-center select-none">
+
+      <!-- The Name — Giant watermark, auto-scaled to always fit -->
+      <div class="w-full pt-12 sm:pt-16 pb-2 sm:pb-4 px-4">
+        <h1 id="footer-watermark"
+          class="font-black tracking-tighter leading-none pb-[0.05em] text-transparent bg-clip-text bg-gradient-to-b from-white/[0.15] to-white/[0.03] w-full text-center whitespace-nowrap pointer-events-none uppercase"
+          style="font-size: 16vw;">
+          KOLOG MAGDY
+        </h1>
+      </div>
+
+      <!-- Bottom bar — copyright + IDE status -->
+      <div
+        class="w-full flex flex-col sm:flex-row items-center justify-between px-5 md:px-12 py-5 sm:py-6 gap-3 font-mono text-[10px] md:text-[11px] text-text-muted border-t border-white/[0.04]">
+        <div class="flex items-center gap-2.5">
+          <span
+            class="w-5 h-5 sm:w-6 sm:h-6 rounded bg-white/[0.04] border border-white/[0.08] flex items-center justify-center font-bold text-white/80 text-[9px] sm:text-[10px]">KM</span>
+          <span id="footer-copyright" class="tracking-widest uppercase"></span>
+        </div>
+        <div
+          class="flex items-center gap-3 sm:gap-4 backdrop-blur-sm bg-black/30 px-3 py-1.5 rounded-full border border-white/[0.05]">
+          <span dir="ltr">main*</span>
+          <span dir="ltr" class="border-s border-white/[0.08] ps-3">UTF-8</span>
+          <span id="status-lang" dir="ltr" class="border-s border-white/[0.08] ps-3">EN</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ Profile Card Modal ═══ -->
+  <div id="profile-modal-overlay"
+    class="profile-modal-overlay fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-md" id="profile-modal-backdrop"></div>
+    <div id="profile-modal-card"
+      class="profile-modal-card relative w-full max-w-xs rounded-3xl overflow-hidden border border-white/[0.1] shadow-2xl shadow-indigo-900/30">
+
+      <!-- Glass background -->
+      <div class="bg-bg-modal/95 backdrop-blur-2xl">
+
+        <!-- Gradient header — tall, dramatic -->
+        <div class="h-28 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/50 via-purple-600/40 to-fuchsia-500/30"></div>
+          <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTYwIDBMMCAwTDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2cpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')] opacity-50">
+          </div>
+          <!-- Close -->
+          <button id="profile-modal-close"
+            class="absolute top-3 end-3 w-8 h-8 rounded-full bg-black/30 hover:bg-black/50 text-white/60 hover:text-white flex items-center justify-center transition-all duration-200 cursor-pointer backdrop-blur-sm"
+            aria-label="Close profile card">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Avatar — large, overlapping header -->
+        <div class="flex justify-center -mt-[4.5rem]">
+          <div
+            class="profile-avatar-ring w-36 h-36 rounded-full p-[3px] bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 shadow-2xl shadow-indigo-500/25">
+            <img id="profile-modal-avatar" src="avatar.webp" alt="Kolog Magdy"
+              class="w-full h-full rounded-full object-cover object-top bg-bg-modal ring-4 ring-bg-modal">
+          </div>
+        </div>
+
+        <!-- Identity: Name + Title only. Nothing else. -->
+        <div class="text-center px-6 pt-4 pb-2">
+          <h3 id="profile-modal-name" class="text-lg font-bold text-white tracking-tight">Kolog Magdy</h3>
+          <p id="profile-modal-title" class="text-xs font-mono text-indigo-400/90 mt-1" dir="ltr">Software Engineer</p>
+        </div>
+
+        <!-- Divider -->
+        <div class="mx-6 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"></div>
+
+        <!-- Social Links — 3×2 grid -->
+        <div class="grid grid-cols-3 gap-x-2 gap-y-2.5 py-4 px-6 font-mono text-xs">
+          <a id="profile-modal-github" href="#"
+            class="flex items-center gap-1 text-indigo-400 hover:text-white transition-colors" aria-label="GitHub">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
+            </svg>
+            GitHub
+          </a>
+          <a id="profile-modal-linkedin" href="#"
+            class="flex items-center gap-1 text-purple-400 hover:text-white transition-colors" aria-label="LinkedIn">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22.225 0H1.77C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.77 24h20.451C23.203 24 24 23.227 24 22.271V1.729C24 .774 23.203 0 22.222 0h.003zM7.12 20.452H3.558V9H7.12v11.452zM5.34 7.434a2.064 2.064 0 110-4.125 2.063 2.063 0 010 4.125zm15.112 13.018h-3.558v-5.57c0-1.326-.024-3.037-1.852-3.037-1.851 0-2.133 1.448-2.133 2.939v5.668H9.356V9h3.414v1.566h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.281z" />
+            </svg>
+            LinkedIn
+          </a>
+          <a id="profile-modal-twitter" href="#"
+            class="flex items-center gap-1 text-text-main hover:text-white transition-colors" aria-label="X">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            X
+          </a>
+          <a id="profile-modal-instagram" href="#"
+            class="flex items-center gap-1 text-pink-400 hover:text-white transition-colors" aria-label="Instagram">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg>
+            Instagram
+          </a>
+          <a id="profile-modal-facebook" href="#"
+            class="flex items-center gap-1 text-blue-400 hover:text-white transition-colors" aria-label="Facebook">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+            Facebook
+          </a>
+          <a id="profile-modal-email" href="mailto:test@example.com"
+            class="flex items-center gap-1 text-rose-400 hover:text-white transition-colors" aria-label="Email">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span id="profile-email-label">Email</span>
+          </a>
+        </div>
+
+        <!-- Divider -->
+        <div class="mx-6 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"></div>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-2.5 p-4 px-5">
+          <button data-card-nav="#projects" id="profile-card-projects-btn"
+            class="profile-card-action-btn flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 transition-all duration-200 cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            <span data-card-btn="projects">My Work</span>
+          </button>
+          <button data-card-nav="#contact" id="profile-card-contact-btn"
+            class="profile-card-action-btn flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] text-text-heading border border-white/[0.1] hover:border-white/[0.18] text-sm font-semibold transition-all duration-200 cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span data-card-btn="contact">Contact Me</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <!-- ═══ Project Modal ═══ -->
+  <div id="proj-modal-overlay"
+    class="profile-modal-overlay fixed inset-0 z-[110] flex items-center justify-center p-2 md:p-4">
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-md" id="proj-modal-backdrop"></div>
+    <div id="proj-modal-card"
+      class="profile-modal-card relative w-[98vw] md:w-full max-w-3xl max-h-[95vh] md:max-h-[90vh] flex flex-col rounded-2xl md:rounded-3xl overflow-hidden border border-white/[0.1] bg-bg-modal/95 shadow-2xl shadow-indigo-900/30">
+
+      <!-- Close Button -->
+      <button id="proj-modal-close"
+        class="absolute top-3 end-3 md:top-4 md:end-4 z-50 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-all duration-200 cursor-pointer backdrop-blur-md border border-white/10"
+        aria-label="Close project">
+        <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Scrollable Content Area -->
+      <div class="overflow-y-auto flex-1 custom-scrollbar">
+        <!-- Header Image banner -->
+        <div
+          class="relative w-full h-36 md:h-64 lg:h-80 bg-bg-card overflow-hidden shrink-0 border-b border-white/[0.05]">
+          <img id="proj-modal-img" src="" alt="Project" class="w-full h-full object-cover object-top opacity-90">
+          <div class="absolute inset-0 bg-gradient-to-t from-bg-modal via-bg-modal/40 to-transparent"></div>
+        </div>
+
+        <!-- Body Content -->
+        <div class="p-4 md:p-8 relative -mt-10 md:-mt-20 flex flex-col min-h-[300px]">
+
+          <div class="flex max-md:flex-col items-start md:items-end justify-between gap-4 mb-6">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <div id="proj-modal-icon"
+                  class="project-icon-wrapper w-10 h-10 flex items-center justify-center rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
+                </div>
+                <h2 id="proj-modal-title" class="text-2xl md:text-3xl font-bold text-white tracking-tight"></h2>
+              </div>
+              <div class="flex items-center gap-2 flex-wrap mt-2" id="proj-modal-badges">
+                <!-- Badges injected by JS -->
+              </div>
+            </div>
+
+            <div id="proj-modal-actions" class="flex gap-2 w-full md:w-auto shrink-0">
+              <!-- Actions injected by JS -->
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="col-span-1 md:col-span-2">
+              <h3 class="text-[10px] font-mono font-semibold text-text-label uppercase tracking-widest mb-2"
+                id="proj-modal-desc-label">Description</h3>
+              <p id="proj-modal-desc" class="text-text-main text-sm leading-relaxed mb-6"></p>
+
+              <div id="proj-modal-highlights-container" class="hidden">
+                <h3 class="text-[10px] font-mono font-semibold text-text-label uppercase tracking-widest mb-3"
+                  id="proj-modal-hl-label">Highlights</h3>
+                <div id="proj-modal-highlights" class="flex flex-col gap-2 mb-6 text-sm text-text-secondary"></div>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="bg-white/[0.02] border border-white/[0.04] rounded-2xl p-5 mb-5 items-center">
+                <h3 class="block text-[10px] font-mono font-semibold text-text-label uppercase tracking-widest mb-2"
+                  id="proj-modal-role-label">Role</h3>
+                <p id="proj-modal-role" class="text-indigo-300 text-sm font-medium"></p>
+              </div>
+              <h3 id="proj-modal-tech-label"
+                class="block text-[10px] font-mono font-semibold text-text-label uppercase tracking-widest mb-3">Tech
+                Stack</h3>
+              <div id="proj-modal-tech" class="flex flex-wrap gap-1.5"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

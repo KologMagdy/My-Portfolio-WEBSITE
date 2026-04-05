@@ -1,0 +1,14 @@
+# Universal
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+*.log
+.env*
+.agent/
+.agents/
+.specify/
+specs/
+PRD.md
