@@ -154,6 +154,15 @@ function renderSocials() {
     }, brandIcon(key)));
   }
 
+  list.append(h('li', {}, h('a', { class: 'list-item state', href: '/links' }, [
+    h('span', { class: 'list-item__leading' }, icon('link')),
+    h('span', { class: 'list-item__text' }, [
+      h('span', { class: 'title-medium', text: t('links_all', 'All my links'), style: 'display:block' }),
+      h('span', { class: 'body-medium', text: 'kolog.dev/links', style: 'display:block' }),
+    ]),
+    icon('arrow_outward', 'list-item__trailing icon--mirror'),
+  ])));
+
   const email = getVal('personal_info.links.email');
   if (isRealLink(email)) {
     const label = t('email_label', 'Email');

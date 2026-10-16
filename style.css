@@ -611,6 +611,8 @@ html[dir="rtl"] .list-item__text .body-medium { text-align: end; }
   color: var(--md-sys-color-on-surface-variant);
 }
 .footer__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.footer__link { color: var(--md-sys-color-primary); }
+@media (hover: hover) { .footer__link:hover { text-decoration: underline; } }
 
 /* ══════════ Dialogs (native <dialog>: focus trap, Esc, inert background) ══════════ */
 .dialog {

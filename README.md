@@ -50,7 +50,23 @@ All content lives in one file, split by language (`en`, `ar`):
 - The hero stats (projects, live projects, technologies) are computed from the data.
 - The static English text in `index.html` is used for SEO and is replaced at runtime from `data.json`. If you change your name or title, update the `<head>` meta and JSON-LD as well.
 
-### 2. Change the color palettes (optional)
+### 2. Edit your links page (`/links`)
+`links.html` is a link-in-bio page (like Linktree) for your social media profiles. Its buttons come from the top-level `links` array in `data.json`:
+
+```json
+"links": [
+  { "icon": "youtube", "url": "https://youtube.com/@you", "title": "YouTube",
+    "subtitle": { "en": "Long-form videos", "ar": "فيديوهات طويلة" }, "featured": false }
+]
+```
+
+- The list order in the file is the order on the page. A link set to `"#"` is hidden.
+- `title` and `subtitle` can be a plain string or `{ "en": "...", "ar": "..." }`.
+- `featured: true` highlights a button with the primary color.
+- `icon` is a brand logo (`youtube`, `tiktok`, `instagram`, `facebook`, `linkedin`, `github`, `twitter`, `whatsapp`, `telegram`) or one of the Material Symbols loaded in `links.html` (`work`, `mail`, `link`, `play_circle`, `podcasts`, `article`, `shopping_bag`, `storefront`, `school`, `calendar_month`, `campaign`, `chat`, `call`, `mic`, `videocam`, `download`, `star`, `favorite`, `code`, `language`). An unknown name shows a generic link icon.
+- The page title, role and bio come from the `links_*` keys under `ui`.
+
+### 3. Change the color palettes (optional)
 Colors are generated from seed colors into `theme.css`:
 
 ```bash
@@ -61,11 +77,11 @@ npm run build      # regenerates ../../theme.css
 
 Edit `SEEDS` in `tools/theme/generate-theme.mjs`. The first seed is the default. If you rename seeds, update the swatches in `index.html` and `SEEDS` in `script.js`.
 
-### 3. Social preview
+### 4. Social preview
 Replace `og-image.jpg` (1200×630) with a screenshot of your site.
 
-### 4. Deploy
-Import the repository into Vercel, Netlify or any static host. There is no build step.
+### 5. Deploy
+Import the repository into Vercel, Netlify or any static host. There is no build step. `vercel.json` turns on `cleanUrls`, so the links page is served at `/links`.
 
 ## 📂 Project structure
 
@@ -74,7 +90,8 @@ Import the repository into Vercel, Netlify or any static host. There is no build
 ├── style.css                 # M3 tokens, typescale, components, layouts, motion
 ├── theme.css                 # Generated M3 color roles (5 seeds × light/dark)
 ├── script.js                 # Rendering, i18n, theme/palette, dialogs, ripple, reveal
-├── data.json                 # ⚠️ All portfolio content (EN + AR)
+├── data.json                 # ⚠️ All portfolio content (EN + AR) and the /links list
+├── links.html / links.css / links.js  # Link-in-bio page (/links)
 ├── tools/theme/              # Color scheme generator (Material Color Utilities)
 ├── avatar-720.webp           # Optimized avatar (avatar.webp is the original)
 ├── favicon.png, apple-touch-icon.png

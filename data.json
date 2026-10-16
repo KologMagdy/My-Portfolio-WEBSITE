@@ -64,7 +64,15 @@
       "theme_dark": "داكن",
       "close": "إغلاق",
       "back_to_top": "العودة للأعلى",
-      "footer_built": "مبني بتصميم Material 3"
+      "footer_built": "مبني بتصميم Material 3",
+      "links_label": "الروابط",
+      "links_all": "كل روابطي",
+      "links_bio": "مهندس برمجيات وصانع محتوى. أبني منتجات وأشارك ما أتعلمه عن البرمجة والتقنية والعمل الحر.",
+      "links_role": "مهندس برمجيات · صانع محتوى",
+      "links_share": "مشاركة الصفحة",
+      "links_copied": "تم نسخ الرابط",
+      "links_back": "الموقع",
+      "links_empty": "لا توجد روابط بعد."
     },
     "skills": {
       "categories": {
@@ -274,7 +282,15 @@
       "theme_dark": "Dark",
       "close": "Close",
       "back_to_top": "Back to top",
-      "footer_built": "Built with Material 3"
+      "footer_built": "Built with Material 3",
+      "links_label": "Links",
+      "links_all": "All my links",
+      "links_bio": "Software engineer & content creator. I build products and share what I learn about code, tech and freelancing.",
+      "links_role": "Software Engineer · Content Creator",
+      "links_share": "Share this page",
+      "links_copied": "Link copied",
+      "links_back": "Portfolio",
+      "links_empty": "No links yet."
     },
     "skills": {
       "categories": {
@@ -418,5 +434,86 @@
         "source": "https://github.com/KologMagdy/TagenFoods-B2B-Architecture"
       }
     ]
-  }
+  },
+  "links": [
+    {
+      "icon": "work",
+      "featured": true,
+      "url": "https://kolog.dev/",
+      "title": {
+        "en": "My portfolio",
+        "ar": "معرض أعمالي"
+      },
+      "subtitle": {
+        "en": "Projects, skills & how to hire me",
+        "ar": "المشاريع والمهارات وطريقة التعاقد معي"
+      }
+    },
+    {
+      "icon": "youtube",
+      "url": "#",
+      "title": "YouTube",
+      "subtitle": {
+        "en": "Long-form videos",
+        "ar": "فيديوهات طويلة"
+      }
+    },
+    {
+      "icon": "tiktok",
+      "url": "#",
+      "title": "TikTok",
+      "subtitle": {
+        "en": "Short videos",
+        "ar": "فيديوهات قصيرة"
+      }
+    },
+    {
+      "icon": "instagram",
+      "url": "https://www.instagram.com/kologmagdy",
+      "title": "Instagram",
+      "subtitle": {
+        "en": "Reels & behind the scenes",
+        "ar": "ريلز وكواليس"
+      }
+    },
+    {
+      "icon": "facebook",
+      "url": "https://www.facebook.com/kolog.magdy",
+      "title": "Facebook",
+      "subtitle": {
+        "en": "Posts & community",
+        "ar": "منشورات ومجتمع"
+      }
+    },
+    {
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/kolog-magdy/",
+      "title": "LinkedIn",
+      "subtitle": {
+        "en": "Professional updates",
+        "ar": "تحديثات مهنية"
+      }
+    },
+    {
+      "icon": "github",
+      "url": "https://github.com/KologMagdy",
+      "title": "GitHub",
+      "subtitle": {
+        "en": "Open-source code",
+        "ar": "أكواد مفتوحة المصدر"
+      }
+    },
+    {
+      "icon": "mail",
+      "url": "mailto:kologmagdy@gmail.com",
+      "title": {
+        "en": "Email me",
+        "ar": "راسلني"
+      },
+      "subtitle": {
+        "en": "Business & collaborations",
+        "ar": "للأعمال والتعاون"
+      }
+    }
+  ]
 }
