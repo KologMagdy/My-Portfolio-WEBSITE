@@ -398,7 +398,7 @@ html[dir="rtl"] .top-app-bar__brand { padding: 4px 4px 4px 16px; }
 .hero__content { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; order: 2; }
 @media (min-width: 840px) { .hero__content { order: 0; } }
 .hero__name { color: var(--md-sys-color-on-surface); overflow-wrap: anywhere; }
-.hero__title { color: var(--md-sys-color-primary); }
+.hero__title { color: var(--md-sys-color-primary); text-wrap: balance; }
 .hero__tagline { color: var(--md-sys-color-on-surface-variant); max-width: 34rem; font-size: 1.125rem; line-height: 1.75rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 @media (max-width: 599px) { .hero__actions { width: 100%; } .hero__actions .btn { flex: 1 1 100%; } }

@@ -2,12 +2,14 @@
   "ar": {
     "personal_info": {
       "name": "كلوج مجدي",
-      "title": "Software Engineer | Full-Stack Developer",
-      "tagline": "أركز على بناء أنظمة قابلة للتوسع وتسليم حلول برمجية تجارية قوية في الموعد.",
+      "title": "Software Engineer | Content Creator",
+      "tagline": "أركز على بناء أنظمة قابلة للتوسع وتسليم حلول برمجية تجارية قوية في الموعد، كما أصنع محتوى أشارك فيه ما أتعلمه عن البرمجة والتقنية والعمل الحر.",
       "avatar": "avatar-720.webp",
       "links": {
         "github": "https://github.com/KologMagdy",
         "linkedin": "https://www.linkedin.com/in/kolog-magdy/",
+        "youtube": "https://www.youtube.com/@kologmagdy",
+        "tiktok": "https://www.tiktok.com/@kologmagdy",
         "twitter": "#",
         "instagram": "https://www.instagram.com/kologmagdy",
         "facebook": "https://www.facebook.com/kolog.magdy",
@@ -220,12 +222,14 @@
   "en": {
     "personal_info": {
       "name": "Kolog Magdy",
-      "title": "Software Engineer | Full-Stack Developer",
-      "tagline": "Focused on building scalable systems and delivering robust commercial solutions on time.",
+      "title": "Software Engineer | Content Creator",
+      "tagline": "Focused on building scalable systems and delivering robust commercial solutions on time. I also create content, sharing what I learn about code, tech and freelancing.",
       "avatar": "avatar-720.webp",
       "links": {
         "github": "https://github.com/KologMagdy",
         "linkedin": "https://www.linkedin.com/in/kolog-magdy/",
+        "youtube": "https://www.youtube.com/@kologmagdy",
+        "tiktok": "https://www.tiktok.com/@kologmagdy",
         "twitter": "#",
         "instagram": "https://www.instagram.com/kologmagdy",
         "facebook": "https://www.facebook.com/kolog.magdy",
@@ -451,7 +455,7 @@
     },
     {
       "icon": "youtube",
-      "url": "#",
+      "url": "https://www.youtube.com/@kologmagdy",
       "title": "YouTube",
       "subtitle": {
         "en": "Long-form videos",
@@ -460,7 +464,7 @@
     },
     {
       "icon": "tiktok",
-      "url": "#",
+      "url": "https://www.tiktok.com/@kologmagdy",
       "title": "TikTok",
       "subtitle": {
         "en": "Short videos",

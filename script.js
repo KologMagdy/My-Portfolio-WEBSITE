@@ -14,6 +14,8 @@ const SKILL_SHAPES = ['cookie9', 'clover4', 'sunny8', 'flower6'];
 const SOCIALS = [
   { key: 'github', label: 'GitHub' },
   { key: 'linkedin', label: 'LinkedIn' },
+  { key: 'youtube', label: 'YouTube' },
+  { key: 'tiktok', label: 'TikTok' },
   { key: 'twitter', label: 'X' },
   { key: 'instagram', label: 'Instagram' },
   { key: 'facebook', label: 'Facebook' },
