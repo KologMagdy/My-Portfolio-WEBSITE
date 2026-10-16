@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-theme-generator",
+  "private": true,
+  "type": "module",
+  "description": "Generates theme.css (Material 3 color roles) from seed colors.",
+  "scripts": {
+    "build": "esbuild generate-theme.mjs --bundle --platform=node --format=esm --log-level=warning --outfile=.out/generate.mjs && node .out/generate.mjs"
+  },
+  "devDependencies": {
+    "@material/material-color-utilities": "0.4.0",
+    "esbuild": "0.25.10"
+  }
+}

@@ -1,0 +1,515 @@
+{
+  "ar": {
+    "personal_info": {
+      "name": "أليكس مورجان",
+      "title": "Software Engineer | Content Creator",
+      "tagline": "أركز على بناء أنظمة قابلة للتوسع وتسليم حلول برمجية تجارية قوية في الموعد، كما أصنع محتوى أشارك فيه ما أتعلمه عن البرمجة والتقنية والعمل الحر.",
+      "avatar": "avatar-720.webp",
+      "links": {
+        "github": "https://github.com/your-username",
+        "linkedin": "https://www.linkedin.com/in/your-username/",
+        "youtube": "https://www.youtube.com/@yourhandle",
+        "tiktok": "https://www.tiktok.com/@yourhandle",
+        "twitter": "#",
+        "instagram": "https://www.instagram.com/yourhandle",
+        "facebook": "https://www.facebook.com/yourhandle",
+        "email": "mailto:hello@example.com"
+      }
+    },
+    "ui": {
+      "skip_to_content": "تخطَّ إلى المحتوى",
+      "nav_label": "التنقل الرئيسي",
+      "nav_about": "عنّي",
+      "nav_skills": "المهارات",
+      "nav_projects": "المشاريع",
+      "nav_contact": "التواصل",
+      "nav_view_profile": "عرض الملف الشخصي",
+      "hero_status": "متاح للتوظيف",
+      "hero_projects_btn": "شاهد أعمالي",
+      "hero_contact_btn": "تواصل معي",
+      "hero_chips": [
+        "Laravel",
+        "Next.js",
+        "Flutter"
+      ],
+      "stat_projects": "مشاريع مُسلَّمة",
+      "stat_live": "تعمل على الإنترنت",
+      "stat_tech": "تقنية",
+      "skills_eyebrow": "أدواتي",
+      "skills_title": "المهارات",
+      "skills_subtitle": "اللغات وأطر العمل والأدوات التي أستخدمها لبناء برمجيات جاهزة للإنتاج.",
+      "skills_count_suffix": "مهارات",
+      "projects_eyebrow": "أعمال مختارة",
+      "projects_title": "أبرز المشاريع",
+      "projects_subtitle": "مشاريع تجارية حقيقية تم إطلاقها وتسليمها للعملاء",
+      "status_live": "يعمل الآن",
+      "private_project": "خاص",
+      "visit_project": "زيارة الموقع",
+      "view_source": "الكود المصدري",
+      "project_role_label": "الدور",
+      "project_highlights_label": "أبرز النقاط",
+      "tech_stack_label": "التقنيات المستخدمة",
+      "contact_section_label": "متاح للعمل الحر",
+      "contact_subtitle": "دعنا نبني شيئاً",
+      "contact_subtitle_accent": "مذهلاً.",
+      "contact_text": "تبحث عن مطور يساعدك في تحويل أفكارك إلى حقيقة أو توسيع نظامك الحالي؟ أنا متاح للعمل الحر ومستعد دائماً لفرص وتحديات جديدة.",
+      "copy_email": "نسخ البريد الإلكتروني",
+      "email_copied": "تم نسخ البريد الإلكتروني",
+      "social_title": "تواصل عبر منصات أخرى",
+      "email_label": "البريد",
+      "card_projects_btn": "أعمالي",
+      "card_contact_btn": "تواصل معي",
+      "palette_label": "لوحة الألوان",
+      "theme_label": "المظهر",
+      "theme_system": "حسب النظام",
+      "theme_light": "فاتح",
+      "theme_dark": "داكن",
+      "close": "إغلاق",
+      "back_to_top": "العودة للأعلى",
+      "footer_built": "مبني بتصميم Material 3",
+      "links_label": "الروابط",
+      "links_all": "كل روابطي",
+      "links_bio": "مهندس برمجيات وصانع محتوى. أبني منتجات وأشارك ما أتعلمه عن البرمجة والتقنية والعمل الحر.",
+      "links_role": "مهندس برمجيات · صانع محتوى",
+      "links_share": "مشاركة الصفحة",
+      "links_copied": "تم نسخ الرابط",
+      "links_back": "الموقع",
+      "links_empty": "لا توجد روابط بعد."
+    },
+    "skills": {
+      "categories": {
+        "languages": "لغات البرمجة",
+        "frameworks": "أطر العمل",
+        "backend_db": "الباك إند وقواعد البيانات",
+        "architecture": "المعمارية والأدوات"
+      },
+      "languages": [
+        "JavaScript / TypeScript",
+        "PHP",
+        "Dart",
+        "Kotlin",
+        "C++",
+        "HTML / CSS",
+        "SQL"
+      ],
+      "frameworks": [
+        "Laravel",
+        "Flutter",
+        "Next.js",
+        "React",
+        "Astro",
+        "Tailwind CSS",
+        "Bootstrap"
+      ],
+      "backend_db": [
+        "MySQL / PostgreSQL",
+        "Redis",
+        "Supabase",
+        "Sanity (Headless CMS)",
+        "Firebase"
+      ],
+      "architecture": [
+        "RESTful APIs",
+        "OOP",
+        "Git & GitHub",
+        "Vercel (Edge Deployment)",
+        "Cloudflare (CDN & WAF)",
+        "Postman"
+      ]
+    },
+    "projects": [
+      {
+        "name": "أوربت (Orbit CRM)",
+        "type": "SaaS Platform · Web + Mobile",
+        "description": "نظام CRM تجريبي متعدد المستأجرين لفرق المبيعات الصغيرة: API بـ Laravel لإدارة الحسابات ومسارات المبيعات والفواتير، ولوحة تحكم Next.js سريعة بالعربي والإنجليزي، وتطبيق Flutter مرافق بتنبيهات لحظية.",
+        "role": "System Architect & Full-Stack Engineer",
+        "year": "2026",
+        "status": "live",
+        "status_label": "يعمل الآن (Production)",
+        "image": "project-1-preview.webp",
+        "highlights": [
+          "معمارية متعددة المستأجرين مع صلاحيات لكل مساحة عمل (RBAC)",
+          "مسار مبيعات بالسحب والإفلات مع سجل للنشاط",
+          "لوحة Next.js ثنائية اللغة (RTL) مع ISR",
+          "تطبيق Flutter بإشعارات فورية للعملاء الجدد"
+        ],
+        "tech_stack": [
+          "Laravel",
+          "PostgreSQL",
+          "Redis",
+          "Next.js",
+          "Flutter",
+          "Firebase (FCM)"
+        ],
+        "icon": "server",
+        "link": "https://example.com"
+      },
+      {
+        "name": "بالس (Pulse Fitness)",
+        "type": "Mobile App · Web + Admin",
+        "description": "تطبيق تجريبي لمتابعة اللياقة على أندرويد و iOS فيه خطط تمارين ورسوم بيانية للتقدم واشتراكات، مع لوحة تحكم لإدارة البرامج والمحتوى.",
+        "role": "Full-Stack / Mobile Engineer",
+        "year": "2026",
+        "status": "live",
+        "status_label": "يعمل الآن (Production)",
+        "image": "project-2-preview.webp",
+        "highlights": [
+          "تسجيل التمارين بدون إنترنت مع مزامنة في الخلفية",
+          "اشتراكات عبر الشراء داخل التطبيق",
+          "لوحة أدمن لإدارة البرامج والتمارين وإعدادات التطبيق"
+        ],
+        "tech_stack": [
+          "Flutter",
+          "Next.js",
+          "Laravel",
+          "Firebase"
+        ],
+        "icon": "code",
+        "link": "https://example.com"
+      },
+      {
+        "name": "نوك ماركت (Nook Market)",
+        "type": "E-Commerce Store",
+        "description": "متجر إلكتروني تجريبي مصمم للموبايل أولاً بخطوات شراء سريعة، ولوحة تحكم محمية لإدارة المنتجات والطلبات، وفيدات منتجات تلقائية لإعلانات التسوق.",
+        "role": "Full-Stack Engineer",
+        "year": "2025",
+        "status": "live",
+        "status_label": "يعمل الآن (Production)",
+        "image": "project-3-preview.webp",
+        "highlights": [
+          "تجربة شراء سريعة مصممة للموبايل أولاً",
+          "لوحة أدمن لإدارة المنتجات والأقسام والطلبات",
+          "فيد منتجات تلقائي وتحسين للسيو"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "Prisma",
+          "PostgreSQL",
+          "Tailwind CSS"
+        ],
+        "icon": "cart",
+        "link": "https://example.com"
+      },
+      {
+        "name": "أطلس (Atlas Docs)",
+        "type": "Documentation Site & Knowledge Base",
+        "description": "موقع توثيق تجريبي ثابت فيه بحث نصي كامل ومحتوى بإصدارات متعددة، مع CMS يسمح لغير المبرمجين بتعديل الصفحات.",
+        "role": "Front-End Engineer",
+        "year": "2025",
+        "status": "live",
+        "status_label": "يعمل الآن (Production)",
+        "image": "project-4-preview.webp",
+        "highlights": [
+          "توليد صفحات ثابتة لتحميل شبه فوري",
+          "بحث نصي كامل من جهة المتصفح",
+          "إدارة المحتوى عبر Headless CMS"
+        ],
+        "tech_stack": [
+          "Astro",
+          "Tailwind CSS",
+          "Sanity (Headless CMS)"
+        ],
+        "icon": "globe",
+        "link": "https://example.com",
+        "source": "https://github.com/your-username/atlas-docs"
+      }
+    ]
+  },
+  "en": {
+    "personal_info": {
+      "name": "Alex Morgan",
+      "title": "Software Engineer | Content Creator",
+      "tagline": "Focused on building scalable systems and delivering robust commercial solutions on time. I also create content, sharing what I learn about code, tech and freelancing.",
+      "avatar": "avatar-720.webp",
+      "links": {
+        "github": "https://github.com/your-username",
+        "linkedin": "https://www.linkedin.com/in/your-username/",
+        "youtube": "https://www.youtube.com/@yourhandle",
+        "tiktok": "https://www.tiktok.com/@yourhandle",
+        "twitter": "#",
+        "instagram": "https://www.instagram.com/yourhandle",
+        "facebook": "https://www.facebook.com/yourhandle",
+        "email": "mailto:hello@example.com"
+      }
+    },
+    "ui": {
+      "skip_to_content": "Skip to content",
+      "nav_label": "Primary",
+      "nav_about": "About",
+      "nav_skills": "Skills",
+      "nav_projects": "Projects",
+      "nav_contact": "Contact",
+      "nav_view_profile": "View profile",
+      "hero_status": "Available for hire",
+      "hero_projects_btn": "View my work",
+      "hero_contact_btn": "Contact me",
+      "hero_chips": [
+        "Laravel",
+        "Next.js",
+        "Flutter"
+      ],
+      "stat_projects": "Shipped projects",
+      "stat_live": "Live in production",
+      "stat_tech": "Technologies",
+      "skills_eyebrow": "Toolbox",
+      "skills_title": "Skills",
+      "skills_subtitle": "The languages, frameworks and tools I use to ship production software.",
+      "skills_count_suffix": "skills",
+      "projects_eyebrow": "Selected work",
+      "projects_title": "Featured Projects",
+      "projects_subtitle": "Real commercial projects shipped and delivered to clients",
+      "status_live": "Live",
+      "private_project": "Private",
+      "visit_project": "Visit site",
+      "view_source": "Source code",
+      "project_role_label": "Role",
+      "project_highlights_label": "Highlights",
+      "tech_stack_label": "Tech stack",
+      "contact_section_label": "Open for freelance",
+      "contact_subtitle": "Let's build something",
+      "contact_subtitle_accent": "amazing.",
+      "contact_text": "Looking for a developer to help bring your ideas to life or scale your existing systems? I'm available for freelance work and always open to new opportunities.",
+      "copy_email": "Copy email address",
+      "email_copied": "Email address copied",
+      "social_title": "Connect elsewhere",
+      "email_label": "Email",
+      "card_projects_btn": "My work",
+      "card_contact_btn": "Contact me",
+      "palette_label": "Color palette",
+      "theme_label": "Theme",
+      "theme_system": "System",
+      "theme_light": "Light",
+      "theme_dark": "Dark",
+      "close": "Close",
+      "back_to_top": "Back to top",
+      "footer_built": "Built with Material 3",
+      "links_label": "Links",
+      "links_all": "All my links",
+      "links_bio": "Software engineer & content creator. I build products and share what I learn about code, tech and freelancing.",
+      "links_role": "Software Engineer · Content Creator",
+      "links_share": "Share this page",
+      "links_copied": "Link copied",
+      "links_back": "Portfolio",
+      "links_empty": "No links yet."
+    },
+    "skills": {
+      "categories": {
+        "languages": "Languages",
+        "frameworks": "Frameworks",
+        "backend_db": "Backend & DBs",
+        "architecture": "Architecture & Tools"
+      },
+      "languages": [
+        "JavaScript / TypeScript",
+        "PHP",
+        "Dart",
+        "Kotlin",
+        "C++",
+        "HTML / CSS",
+        "SQL"
+      ],
+      "frameworks": [
+        "Laravel",
+        "Flutter",
+        "Next.js",
+        "React",
+        "Astro",
+        "Tailwind CSS",
+        "Bootstrap"
+      ],
+      "backend_db": [
+        "MySQL / PostgreSQL",
+        "Redis",
+        "Supabase",
+        "Sanity (Headless CMS)",
+        "Firebase"
+      ],
+      "architecture": [
+        "RESTful APIs",
+        "OOP",
+        "Git & GitHub",
+        "Vercel (Edge Deployment)",
+        "Cloudflare (CDN & WAF)",
+        "Postman"
+      ]
+    },
+    "projects": [
+      {
+        "name": "Orbit CRM",
+        "type": "SaaS Platform · Web + Mobile",
+        "description": "A sample multi-tenant CRM for small sales teams: a Laravel API handling accounts, pipelines and billing, a fast bilingual Next.js dashboard, and a Flutter companion app with real-time notifications.",
+        "role": "System Architect & Full-Stack Engineer",
+        "year": "2026",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "project-1-preview.webp",
+        "highlights": [
+          "Multi-tenant architecture with per-workspace roles (RBAC)",
+          "Drag-and-drop sales pipeline with activity timeline",
+          "Bilingual (RTL) Next.js dashboard with ISR",
+          "Flutter app with push notifications for new leads"
+        ],
+        "tech_stack": [
+          "Laravel",
+          "PostgreSQL",
+          "Redis",
+          "Next.js",
+          "Flutter",
+          "Firebase (FCM)"
+        ],
+        "icon": "server",
+        "link": "https://example.com"
+      },
+      {
+        "name": "Pulse Fitness",
+        "type": "Mobile App · Web + Admin",
+        "description": "A sample fitness-tracking app for Android and iOS with workout plans, progress charts and subscriptions, backed by an admin dashboard for managing programs and content.",
+        "role": "Full-Stack / Mobile Engineer",
+        "year": "2026",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "project-2-preview.webp",
+        "highlights": [
+          "Offline-first workout logging with background sync",
+          "Subscriptions via in-app purchases",
+          "Admin panel for programs, exercises and app settings"
+        ],
+        "tech_stack": [
+          "Flutter",
+          "Next.js",
+          "Laravel",
+          "Firebase"
+        ],
+        "icon": "code",
+        "link": "https://example.com"
+      },
+      {
+        "name": "Nook Market",
+        "type": "E-Commerce Store",
+        "description": "A sample mobile-first online store with a quick checkout, a protected admin dashboard for products and orders, and automatic product feeds for shopping ads.",
+        "role": "Full-Stack Engineer",
+        "year": "2025",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "project-3-preview.webp",
+        "highlights": [
+          "Fast, mobile-first checkout flow",
+          "Admin dashboard for products, categories and orders",
+          "Automatic product feed and SEO optimization"
+        ],
+        "tech_stack": [
+          "Next.js",
+          "Prisma",
+          "PostgreSQL",
+          "Tailwind CSS"
+        ],
+        "icon": "cart",
+        "link": "https://example.com"
+      },
+      {
+        "name": "Atlas Docs",
+        "type": "Documentation Site & Knowledge Base",
+        "description": "A sample static documentation site with full-text search, versioned content and a headless CMS so non-developers can edit pages.",
+        "role": "Front-End Engineer",
+        "year": "2025",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "project-4-preview.webp",
+        "highlights": [
+          "Static generation for near-instant page loads",
+          "Client-side full-text search",
+          "Content managed through a headless CMS"
+        ],
+        "tech_stack": [
+          "Astro",
+          "Tailwind CSS",
+          "Sanity (Headless CMS)"
+        ],
+        "icon": "globe",
+        "link": "https://example.com",
+        "source": "https://github.com/your-username/atlas-docs"
+      }
+    ]
+  },
+  "links": [
+    {
+      "icon": "work",
+      "featured": true,
+      "url": "https://example.com/",
+      "title": {
+        "en": "My portfolio",
+        "ar": "معرض أعمالي"
+      },
+      "subtitle": {
+        "en": "Projects, skills & how to hire me",
+        "ar": "المشاريع والمهارات وطريقة التعاقد معي"
+      }
+    },
+    {
+      "icon": "youtube",
+      "url": "https://www.youtube.com/@yourhandle",
+      "title": "YouTube",
+      "subtitle": {
+        "en": "Long-form videos",
+        "ar": "فيديوهات طويلة"
+      }
+    },
+    {
+      "icon": "tiktok",
+      "url": "https://www.tiktok.com/@yourhandle",
+      "title": "TikTok",
+      "subtitle": {
+        "en": "Short videos",
+        "ar": "فيديوهات قصيرة"
+      }
+    },
+    {
+      "icon": "instagram",
+      "url": "https://www.instagram.com/yourhandle",
+      "title": "Instagram",
+      "subtitle": {
+        "en": "Reels & behind the scenes",
+        "ar": "ريلز وكواليس"
+      }
+    },
+    {
+      "icon": "facebook",
+      "url": "https://www.facebook.com/yourhandle",
+      "title": "Facebook",
+      "subtitle": {
+        "en": "Posts & community",
+        "ar": "منشورات ومجتمع"
+      }
+    },
+    {
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/your-username/",
+      "title": "LinkedIn",
+      "subtitle": {
+        "en": "Professional updates",
+        "ar": "تحديثات مهنية"
+      }
+    },
+    {
+      "icon": "github",
+      "url": "https://github.com/your-username",
+      "title": "GitHub",
+      "subtitle": {
+        "en": "Open-source code",
+        "ar": "أكواد مفتوحة المصدر"
+      }
+    },
+    {
+      "icon": "mail",
+      "url": "mailto:hello@example.com",
+      "title": {
+        "en": "Email me",
+        "ar": "راسلني"
+      },
+      "subtitle": {
+        "en": "Business & collaborations",
+        "ar": "للأعمال والتعاون"
+      }
+    }
+  ]
+}
