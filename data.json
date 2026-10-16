@@ -47,7 +47,12 @@
       "code_window_name": "كلوج مجدي",
       "code_window_role": "مهندس برمجيات شامل",
       "code_window_focus": "الأنظمة القابلة للتوسع",
-      "code_window_stack": ["PHP", "Next.js", "React", "MySQL"],
+      "code_window_stack": [
+        "PHP",
+        "Next.js",
+        "React",
+        "MySQL"
+      ],
       "code_window_available": "true"
     },
     "skills": {
@@ -60,11 +65,15 @@
       "languages": [
         "JavaScript / TypeScript",
         "PHP",
+        "Dart",
+        "Kotlin",
         "C++",
         "HTML / CSS",
         "SQL"
       ],
       "frameworks": [
+        "Laravel",
+        "Flutter",
         "Next.js",
         "React",
         "Astro",
@@ -73,6 +82,7 @@
       ],
       "backend_db": [
         "MySQL / PostgreSQL",
+        "Redis",
         "Supabase",
         "Sanity (Headless CMS)",
         "Firebase"
@@ -87,6 +97,82 @@
     },
     "projects_title": "أبرز المشاريع",
     "projects": [
+      {
+        "name": "فولورز هب (Followers Hub)",
+        "type": "SMM Ecosystem · Web + Mobile",
+        "description": "منصة متكاملة لخدمات التسويق عبر السوشيال ميديا (SMM) بأسعار الجملة. بنيت المنظومة كاملة: Backend بـ Laravel يدير المحفظة والمحرك المالي والطلبات والمزامنة مع المزودين، وواجهة Next.js سريعة ومهيأة للسيو بالعربي والإنجليزي، وتطبيق موبايل بـ Flutter يوصّل للأدمن تنبيهات لحظية بكل ما يحتاج تدخله.",
+        "role": "System Architect & Full-Stack Engineer",
+        "year": "2026",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "followershub-preview.webp",
+        "highlights": [
+          "محرك مالي ومحفظة مع إيداعات عبر Binance Pay و InstaPay و USDT",
+          "مزامنة تلقائية للخدمات والأسعار مع المزودين وتتبع حالة الطلبات",
+          "واجهة Next.js ثنائية اللغة (RTL) مع ISR وتسجيل دخول Google و Facebook",
+          "تطبيق Flutter لتنبيهات الأدمن (Push) بالطلبات والتذاكر والإيداعات",
+          "صلاحيات للموظفين (RBAC) وحماية بـ Cloudflare و Redis"
+        ],
+        "tech_stack": [
+          "Laravel 13",
+          "PostgreSQL",
+          "Redis",
+          "Next.js 15",
+          "Flutter",
+          "Firebase (FCM)"
+        ],
+        "icon": "server",
+        "link": "https://followershub.net"
+      },
+      {
+        "name": "برق بوستر (Barq Booster)",
+        "type": "VPN App · Web + Admin",
+        "description": "تطبيق VPN لأندرويد و iOS موجّه للاعبين وصناع المحتوى، مع موقع ويب للاشتراكات ولوحة تحكم لإدارة السيرفرات والإعدادات. التطبيق مبني بمحركين: v2ray على أندرويد و Packet Tunnel Extension أصلي على iOS خلف واجهة موحدة.",
+        "role": "System Architect & Full-Stack / Mobile Engineer",
+        "year": "2026",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "barq-booster-preview.webp",
+        "highlights": [
+          "معمارية VPN مزدوجة المحرك (Android v2ray / iOS Network Extension)",
+          "اشتراكات عبر Paddle و In-App Purchases بأسعار حية",
+          "دمج إعلانات AdMob و Unity Ads مع شاشة موافقة المستخدم (UMP)",
+          "لوحة أدمن Laravel لإدارة السيرفرات والبروتوكولات وإعدادات التطبيق عبر API",
+          "موقع Next.js متعدد اللغات لصفحات الأسعار والتحميل والاشتراك"
+        ],
+        "tech_stack": [
+          "Flutter",
+          "Next.js 16",
+          "Laravel 12",
+          "Paddle",
+          "Firebase"
+        ],
+        "icon": "code",
+        "link": "https://barqbooster.com"
+      },
+      {
+        "name": "فيكس تولز (Fix Tools)",
+        "type": "COD E-Commerce Store",
+        "description": "متجر إلكتروني للعدد والآلات والمعدات بنظام الدفع عند الاستلام (COD)، مصمم للموبايل أولاً، مع لوحة تحكم محمية لإدارة المنتجات والطلبات، وفيدات منتجات تلقائية لـ Google Merchant.",
+        "role": "Full-Stack Engineer",
+        "year": "2026",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "fixtools-preview.webp",
+        "highlights": [
+          "تجربة شراء سريعة بالدفع عند الاستلام مصممة للموبايل أولاً",
+          "لوحة أدمن محمية لإدارة المنتجات والأقسام والطلبات",
+          "فيد منتجات تلقائي لـ Google Merchant وتحسين للسيو"
+        ],
+        "tech_stack": [
+          "Next.js 14",
+          "Prisma",
+          "PostgreSQL (Supabase)",
+          "Tailwind CSS"
+        ],
+        "icon": "cart",
+        "link": "https://fixtools.shop"
+      },
       {
         "name": "طاجن (Tagen Foods)",
         "type": "B2B Export Catalog & Lead Generation Portal",
@@ -160,7 +246,12 @@
       "code_window_name": "Kolog Magdy",
       "code_window_role": "Full-Stack Engineer",
       "code_window_focus": "Scalable Systems",
-      "code_window_stack": ["PHP", "Next.js", "React", "MySQL"],
+      "code_window_stack": [
+        "PHP",
+        "Next.js",
+        "React",
+        "MySQL"
+      ],
       "code_window_available": "true"
     },
     "skills": {
@@ -173,11 +264,15 @@
       "languages": [
         "JavaScript / TypeScript",
         "PHP",
+        "Dart",
+        "Kotlin",
         "C++",
         "HTML / CSS",
         "SQL"
       ],
       "frameworks": [
+        "Laravel",
+        "Flutter",
         "Next.js",
         "React",
         "Astro",
@@ -186,6 +281,7 @@
       ],
       "backend_db": [
         "MySQL / PostgreSQL",
+        "Redis",
         "Supabase",
         "Sanity (Headless CMS)",
         "Firebase"
@@ -201,6 +297,82 @@
     },
     "projects_title": "Featured Projects",
     "projects": [
+      {
+        "name": "Followers Hub",
+        "type": "SMM Ecosystem · Web + Mobile",
+        "description": "A complete social media marketing (SMM) platform selling growth services at wholesale prices. I built the whole ecosystem: a Laravel backend running the wallet, financial engine, orders and provider sync; a fast, SEO-ready bilingual Next.js frontend; and a Flutter mobile app that pushes real-time alerts to admins for anything that needs attention.",
+        "role": "System Architect & Full-Stack Engineer",
+        "year": "2026",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "followershub-preview.webp",
+        "highlights": [
+          "Wallet and financial engine with Binance Pay, InstaPay and USDT deposits",
+          "Automatic service & price sync with providers plus order status tracking",
+          "Bilingual (RTL) Next.js storefront with ISR and Google / Facebook sign-in",
+          "Flutter admin app with push alerts for orders, tickets and deposits",
+          "Staff RBAC, Cloudflare protection and Redis-backed performance"
+        ],
+        "tech_stack": [
+          "Laravel 13",
+          "PostgreSQL",
+          "Redis",
+          "Next.js 15",
+          "Flutter",
+          "Firebase (FCM)"
+        ],
+        "icon": "server",
+        "link": "https://followershub.net"
+      },
+      {
+        "name": "Barq Booster",
+        "type": "VPN App · Web + Admin",
+        "description": "A VPN app for Android and iOS aimed at gamers and streamers, backed by a subscription website and an admin dashboard for servers and app settings. The app runs on a dual engine — v2ray on Android and a native Packet Tunnel Extension on iOS — behind one unified gateway.",
+        "role": "System Architect & Full-Stack / Mobile Engineer",
+        "year": "2026",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "barq-booster-preview.webp",
+        "highlights": [
+          "Dual-engine VPN architecture (Android v2ray / iOS Network Extension)",
+          "Subscriptions via Paddle and In-App Purchases with live pricing",
+          "AdMob & Unity Ads mediation with a UMP user-consent flow",
+          "Laravel admin panel managing servers, protocols and app config over an API",
+          "Multilingual Next.js site for pricing, downloads and checkout"
+        ],
+        "tech_stack": [
+          "Flutter",
+          "Next.js 16",
+          "Laravel 12",
+          "Paddle",
+          "Firebase"
+        ],
+        "icon": "code",
+        "link": "https://barqbooster.com"
+      },
+      {
+        "name": "Fix Tools",
+        "type": "COD E-Commerce Store",
+        "description": "A mobile-first e-commerce store for power tools and machinery with Cash on Delivery checkout, a protected admin dashboard for products and orders, and automatic product feeds for Google Merchant.",
+        "role": "Full-Stack Engineer",
+        "year": "2026",
+        "status": "live",
+        "status_label": "Live Production",
+        "image": "fixtools-preview.webp",
+        "highlights": [
+          "Fast, mobile-first Cash on Delivery checkout flow",
+          "Protected admin dashboard for products, categories and orders",
+          "Automatic Google Merchant product feed and SEO optimization"
+        ],
+        "tech_stack": [
+          "Next.js 14",
+          "Prisma",
+          "PostgreSQL (Supabase)",
+          "Tailwind CSS"
+        ],
+        "icon": "cart",
+        "link": "https://fixtools.shop"
+      },
       {
         "name": "Tagen Foods",
         "type": "B2B Export Catalog & Lead Generation Portal",
